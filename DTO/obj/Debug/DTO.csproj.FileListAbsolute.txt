@@ -1,0 +1,11 @@
+D:\WindowsProgramming\Project\DTO\bin\Debug\DTO.dll
+D:\WindowsProgramming\Project\DTO\bin\Debug\DTO.pdb
+D:\WindowsProgramming\Project\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\WindowsProgramming\Project\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\WindowsProgramming\Project\DTO\obj\Debug\DTO.dll
+D:\WindowsProgramming\Project\DTO\obj\Debug\DTO.pdb
+D:\WindowsProgramming\QuanLyBanHang\DTO\bin\Debug\DTO.dll
+D:\WindowsProgramming\QuanLyBanHang\DTO\bin\Debug\DTO.pdb
+D:\WindowsProgramming\QuanLyBanHang\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\WindowsProgramming\QuanLyBanHang\DTO\obj\Debug\DTO.dll
+D:\WindowsProgramming\QuanLyBanHang\DTO\obj\Debug\DTO.pdb
