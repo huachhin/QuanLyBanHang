@@ -16,7 +16,7 @@ namespace DAL
         public DatabaseAccess()
         {
             sqlDataAdapter = new SqlDataAdapter();
-            sqlConnection = new SqlConnection(Properties.Settings.Default.cnnStr);
+            sqlConnection = new SqlConnection("SQL");
         }
         public SqlConnection openConnection()
         {

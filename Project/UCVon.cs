@@ -16,9 +16,5 @@ namespace Project
         {
             InitializeComponent();
         }
-        public void LoadData(DataTable dt)
-        {
-            dataGridView1.DataSource = dt;
-        }
     }
 }

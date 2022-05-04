@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,19 +15,17 @@ namespace BLL
         {
             hoaDonAccess = new HoaDonAccess();
         }
-        public void ThemHoaDon(string maMatHang, string maKhachHang, string maNguoiTao,
-            DateTime thoiGian, int soLuong, int khachTra, string phuongThuc, string trangThai)
+        public DataTable LamMoiHoaDon()
         {
-            hoaDonAccess.InsertHoaDon(maMatHang, maKhachHang, maNguoiTao, thoiGian, soLuong, khachTra, phuongThuc, trangThai);
+            return hoaDonAccess.LoadHoaDon();
         }
-        public void CapNhatHoaDon(string maMatHang, string maKhachHang, string maNguoiTao,
-            DateTime thoiGian, int soLuong, int khachTra, string phuongThuc, string trangThai)
+        public DataTable TimKiem(string valueSearch)
         {
-            hoaDonAccess.Update(maMatHang, maKhachHang, maNguoiTao, thoiGian, soLuong, khachTra, phuongThuc, trangThai);
+            return hoaDonAccess.Search(valueSearch);
         }
-        public void XoaHoaDon(string maMatHang, string maKhachHang)
+        public DataTable Gop()
         {
-            hoaDonAccess.Del(maMatHang, maKhachHang);
+            return hoaDonAccess.GopDon();
         }
     }
 }
