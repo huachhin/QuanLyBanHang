@@ -31,15 +31,12 @@ namespace Project
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtGridViewNCC = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btDatHang = new System.Windows.Forms.Button();
-            this.btLienHe = new System.Windows.Forms.Button();
             this.btXoaNCC = new System.Windows.Forms.Button();
             this.btThemNCC = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
@@ -60,10 +57,8 @@ namespace Project
             // 
             this.dtGridViewNCC.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.dtGridViewNCC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtGridViewNCC.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dtGridViewNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridViewNCC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
             this.MaNCC,
             this.TenNCC,
             this.Email,
@@ -76,16 +71,11 @@ namespace Project
             this.dtGridViewNCC.RowTemplate.Height = 24;
             this.dtGridViewNCC.Size = new System.Drawing.Size(1084, 597);
             this.dtGridViewNCC.TabIndex = 7;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.Width = 60;
+            this.dtGridViewNCC.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtGridViewNCC_RowValidating);
             // 
             // MaNCC
             // 
+            this.MaNCC.DataPropertyName = "MaNhaCungCap";
             this.MaNCC.HeaderText = "Mã Nhà CC";
             this.MaNCC.MinimumWidth = 6;
             this.MaNCC.Name = "MaNCC";
@@ -93,6 +83,7 @@ namespace Project
             // 
             // TenNCC
             // 
+            this.TenNCC.DataPropertyName = "TenNhaCungCap";
             this.TenNCC.HeaderText = "Tên Nhà CC";
             this.TenNCC.MinimumWidth = 6;
             this.TenNCC.Name = "TenNCC";
@@ -100,6 +91,7 @@ namespace Project
             // 
             // Email
             // 
+            this.Email.DataPropertyName = "Email";
             this.Email.HeaderText = "Email";
             this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
@@ -107,6 +99,7 @@ namespace Project
             // 
             // DiaChi
             // 
+            this.DiaChi.DataPropertyName = "DiaChi";
             this.DiaChi.HeaderText = "Địa Chỉ";
             this.DiaChi.MinimumWidth = 6;
             this.DiaChi.Name = "DiaChi";
@@ -114,6 +107,7 @@ namespace Project
             // 
             // SDT
             // 
+            this.SDT.DataPropertyName = "SDT";
             this.SDT.HeaderText = "SĐT";
             this.SDT.MinimumWidth = 6;
             this.SDT.Name = "SDT";
@@ -121,8 +115,6 @@ namespace Project
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btDatHang);
-            this.panel1.Controls.Add(this.btLienHe);
             this.panel1.Controls.Add(this.btXoaNCC);
             this.panel1.Controls.Add(this.btThemNCC);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -130,32 +122,6 @@ namespace Project
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1084, 680);
             this.panel1.TabIndex = 0;
-            // 
-            // btDatHang
-            // 
-            this.btDatHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btDatHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
-            this.btDatHang.Image = global::Project.Properties.Resources.icons8_add_shopping_cart_48px_1;
-            this.btDatHang.Location = new System.Drawing.Point(92, 600);
-            this.btDatHang.Name = "btDatHang";
-            this.btDatHang.Size = new System.Drawing.Size(203, 62);
-            this.btDatHang.TabIndex = 3;
-            this.btDatHang.Text = "   Đặt Hàng";
-            this.btDatHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btDatHang.UseVisualStyleBackColor = false;
-            // 
-            // btLienHe
-            // 
-            this.btLienHe.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btLienHe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
-            this.btLienHe.Image = global::Project.Properties.Resources.icons8_contact_48px_1;
-            this.btLienHe.Location = new System.Drawing.Point(321, 600);
-            this.btLienHe.Name = "btLienHe";
-            this.btLienHe.Size = new System.Drawing.Size(203, 62);
-            this.btLienHe.TabIndex = 3;
-            this.btLienHe.Text = "   Liên Hệ";
-            this.btLienHe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btLienHe.UseVisualStyleBackColor = false;
             // 
             // btXoaNCC
             // 
@@ -182,6 +148,7 @@ namespace Project
             this.btThemNCC.Text = "Thêm Nhà CC";
             this.btThemNCC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btThemNCC.UseVisualStyleBackColor = false;
+            this.btThemNCC.Click += new System.EventHandler(this.btThemNCC_Click);
             // 
             // frmNhaCC
             // 
@@ -196,6 +163,7 @@ namespace Project
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmNhaCC";
             this.Text = "frmNhaCC";
+            this.Load += new System.EventHandler(this.frmNhaCC_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewNCC)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -208,15 +176,12 @@ namespace Project
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dtGridViewNCC;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.Button btXoaNCC;
+        private System.Windows.Forms.Button btThemNCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-        private System.Windows.Forms.Button btLienHe;
-        private System.Windows.Forms.Button btXoaNCC;
-        private System.Windows.Forms.Button btThemNCC;
-        private System.Windows.Forms.Button btDatHang;
     }
 }

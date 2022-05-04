@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4765ca102c9a4132aee351ba2ff5a0c6" Name="Diagram1" ZoomLevel="105">
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.CuaHang" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.HoaDon" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.KhachHang" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.Kho" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.NhaCungCap" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.NhanVien" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.TaiChinh" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyBanDienThoaiModel.FK_HoaDon_CuaHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyBanDienThoaiModel.FK_Kho_CuaHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyBanDienThoaiModel.FK_HoaDon_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyBanDienThoaiModel.FK_HoaDon_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyBanDienThoaiModel.FK_Kho_NhaCungCap" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

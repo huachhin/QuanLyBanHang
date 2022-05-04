@@ -5,54 +5,118 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FastMember;
+using DTO;
 
 namespace DAL
 {
     public class TaiChinhAccess
     {
-        private DatabaseAccess dbConnection;
-        public TaiChinhAccess()
+        public DataTable LoadVon()
         {
-            dbConnection = new DatabaseAccess();
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var query = from q in db.TaiChinhs
+                            select q;
+                DataTable dt = new DataTable();
+                var reader = ObjectReader.Create(query);
+                dt.Load(reader);
+                return dt;
+            }
         }
-        private SqlParameter[] Parameter(string maNguoiGop, int von, DateTime thoiGian, string email)
+        public DataTable LoadThongKe()
         {
-            SqlParameter[] sqlParameters = new SqlParameter[4];
-            sqlParameters[0] = new SqlParameter("@maNguoiGop", System.Data.SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(maNguoiGop);
-            sqlParameters[1] = new SqlParameter("@von", System.Data.SqlDbType.Int);
-            sqlParameters[1].Value = Convert.ToString(von);
-            sqlParameters[2] = new SqlParameter("@thoiGian", System.Data.SqlDbType.DateTime);
-            sqlParameters[2].Value = Convert.ToString(thoiGian);
-            sqlParameters[3] = new SqlParameter("@email", System.Data.SqlDbType.NVarChar);
-            sqlParameters[3].Value = Convert.ToString(email);
-            return sqlParameters;
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var query = from d in db.HoaDons
+                            select d;
+                DataTable dt = new DataTable();
+                var reader = ObjectReader.Create(query);
+                dt.Load(reader);
+                return dt;
+            }
         }
-        public DataTable LoadDs()
+        public DataTable LoadDoanhThu()
         {
-            const string sql = "SELECT * FROM TaiChinh";
-
-            SqlDataReader sqlDataReader = dbConnection.executeReader(sql);
-
-            DataTable dt = new DataTable();
-            dt.Load(sqlDataReader);
-            return dt;
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var query = from q in db.HoaDons
+                            join p in db.CuaHangs
+                            on q.MaMatHang equals p.MaMatHang
+                            select new
+                            {
+                                MaMatHang = p.MaMatHang,
+                                TenHang = p.TenHang,
+                                SoLuong = q.SoLuong,
+                                GiaBan = p.GiaBan,
+                                NgayGiaoDich = q.NgayGiaoDich
+                            };
+                DataTable dt = new DataTable();
+                var reader = ObjectReader.Create(query);
+                dt.Load(reader);
+                return dt;
+            }
         }
-        public void UpdateTaiChinh(string maNguoiGop, int von, DateTime thoiGian, string email)
+        public DataTable LoadChiTieu()
         {
-            const string sql = "Update TaiChinh set Von = @von, ThoiGian = @thoiGian, Email = @email where MaNguoiGop = @maNguoiGop";
-
-            SqlParameter[] sqlParameters = Parameter(maNguoiGop, von, thoiGian, email);
-            dbConnection.executeQuery(sql, sqlParameters);
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var query = from q in db.Khoes
+                            join p in db.CuaHangs
+                            on q.MaSanPham equals p.MaMatHang
+                            select new
+                            {
+                                MaMatHang = p.MaMatHang,
+                                TenHang = p.TenHang,
+                                SoLuongNhap = q.SoLuongNhap,
+                                GiaNhap = q.GiaNhap,
+                                NgayNhap = q.NgayNhap
+                            };
+                DataTable dt = new DataTable();
+                var reader = ObjectReader.Create(query);
+                dt.Load(reader);
+                return dt;
+            }
         }
-        public void Del(string maNguoiGop)
+        public void InsertVon(string mng, string tng, int von, DateTime tg, string email, string nguon)
         {
-            const string sql = "Delete from TaiChinh where MaNguoiGop = @maNguoiGop";
-
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@maNguoiGop", System.Data.SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(maNguoiGop);
-            dbConnection.executeQuery(sql, sqlParameters);
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var tim = db.TaiChinhs.SingleOrDefault(t => t.MaNguoiGop == mng);
+                if (tim != null)
+                {                    
+                    tim.TenNguoiGop = tng;
+                    tim.NgayGopVon = tg;
+                    tim.Email = email;
+                    tim.Von = von;
+                }
+                else
+                {
+                    var tc = new TaiChinh()
+                    {
+                        TenNguoiGop = tng,
+                        MaNguoiGop = mng,
+                        Von = von,
+                        NgayGopVon = tg,
+                        Nguon = nguon,
+                        Email = email
+                    };
+                    db.TaiChinhs.Add(tc);
+                }
+                db.SaveChanges();
+            }
+        }
+        public void UpdateVon(string mng, int von)
+        {
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var tim = db.TaiChinhs.SingleOrDefault(t => t.MaNguoiGop == mng);
+                if (tim != null)
+                {
+                    tim.Von = von;
+                }
+                db.SaveChanges();
+            }
         }
     }
 }

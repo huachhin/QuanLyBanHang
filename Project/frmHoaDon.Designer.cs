@@ -29,18 +29,13 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabHoaDon = new MetroFramework.Controls.MetroTabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtGridViewHoaDon = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KhachTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btGop = new System.Windows.Forms.Button();
             this.btInHoaDon = new System.Windows.Forms.Button();
@@ -55,6 +50,15 @@ namespace Project
             this.lsPhuongThuc = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.lsTrangThai = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.lsThuChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KhachTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.tabHoaDon.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,8 +78,8 @@ namespace Project
             this.metroTabControl1.ItemSize = new System.Drawing.Size(250, 50);
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
-            this.metroTabControl1.Size = new System.Drawing.Size(1075, 684);
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(1297, 684);
             this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,7 +96,7 @@ namespace Project
             this.tabHoaDon.HorizontalScrollbarSize = 1;
             this.tabHoaDon.Location = new System.Drawing.Point(4, 54);
             this.tabHoaDon.Name = "tabHoaDon";
-            this.tabHoaDon.Size = new System.Drawing.Size(1067, 626);
+            this.tabHoaDon.Size = new System.Drawing.Size(1289, 626);
             this.tabHoaDon.TabIndex = 0;
             this.tabHoaDon.Text = "Hóa Đơn";
             this.tabHoaDon.VerticalScrollbarBarColor = true;
@@ -105,7 +109,7 @@ namespace Project
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 78);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1067, 548);
+            this.panel2.Size = new System.Drawing.Size(1289, 548);
             this.panel2.TabIndex = 3;
             // 
             // dtGridViewHoaDon
@@ -113,77 +117,22 @@ namespace Project
             this.dtGridViewHoaDon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.dtGridViewHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridViewHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
             this.MaPhieu,
             this.ThoiGian,
             this.KhachHang,
+            this.TenMatHang,
             this.GiaBan,
             this.SoLuong,
             this.TongGia,
-            this.KhachTra});
+            this.KhachTra,
+            this.No});
             this.dtGridViewHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGridViewHoaDon.Location = new System.Drawing.Point(0, 0);
             this.dtGridViewHoaDon.Name = "dtGridViewHoaDon";
             this.dtGridViewHoaDon.RowHeadersWidth = 51;
             this.dtGridViewHoaDon.RowTemplate.Height = 24;
-            this.dtGridViewHoaDon.Size = new System.Drawing.Size(1067, 548);
+            this.dtGridViewHoaDon.Size = new System.Drawing.Size(1289, 548);
             this.dtGridViewHoaDon.TabIndex = 4;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.Width = 60;
-            // 
-            // MaPhieu
-            // 
-            this.MaPhieu.HeaderText = "Mã Phiếu";
-            this.MaPhieu.MinimumWidth = 6;
-            this.MaPhieu.Name = "MaPhieu";
-            this.MaPhieu.Width = 125;
-            // 
-            // ThoiGian
-            // 
-            this.ThoiGian.HeaderText = "Thời Gian";
-            this.ThoiGian.MinimumWidth = 6;
-            this.ThoiGian.Name = "ThoiGian";
-            this.ThoiGian.Width = 140;
-            // 
-            // KhachHang
-            // 
-            this.KhachHang.HeaderText = "Khách Hàng";
-            this.KhachHang.MinimumWidth = 6;
-            this.KhachHang.Name = "KhachHang";
-            this.KhachHang.Width = 160;
-            // 
-            // GiaBan
-            // 
-            this.GiaBan.HeaderText = "Giá Bán";
-            this.GiaBan.MinimumWidth = 6;
-            this.GiaBan.Name = "GiaBan";
-            this.GiaBan.Width = 125;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "Số Lượng";
-            this.SoLuong.MinimumWidth = 6;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Width = 125;
-            // 
-            // TongGia
-            // 
-            this.TongGia.HeaderText = "Tổng Giá";
-            this.TongGia.MinimumWidth = 6;
-            this.TongGia.Name = "TongGia";
-            this.TongGia.Width = 140;
-            // 
-            // KhachTra
-            // 
-            this.KhachTra.HeaderText = "Khách Trả";
-            this.KhachTra.MinimumWidth = 6;
-            this.KhachTra.Name = "KhachTra";
-            this.KhachTra.Width = 150;
             // 
             // panel1
             // 
@@ -193,7 +142,7 @@ namespace Project
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1067, 78);
+            this.panel1.Size = new System.Drawing.Size(1289, 78);
             this.panel1.TabIndex = 2;
             // 
             // btGop
@@ -201,20 +150,21 @@ namespace Project
             this.btGop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btGop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.btGop.Image = global::Project.Properties.Resources.icons8_merge_documents_48px;
-            this.btGop.Location = new System.Drawing.Point(848, 5);
+            this.btGop.Location = new System.Drawing.Point(1070, 5);
             this.btGop.Name = "btGop";
             this.btGop.Size = new System.Drawing.Size(155, 66);
             this.btGop.TabIndex = 1;
             this.btGop.Text = "Gộp Đơn";
             this.btGop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btGop.UseVisualStyleBackColor = false;
+            this.btGop.Click += new System.EventHandler(this.btGop_Click);
             // 
             // btInHoaDon
             // 
             this.btInHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btInHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.btInHoaDon.Image = global::Project.Properties.Resources.icons8_print_48px_1;
-            this.btInHoaDon.Location = new System.Drawing.Point(636, 6);
+            this.btInHoaDon.Location = new System.Drawing.Point(858, 6);
             this.btInHoaDon.Name = "btInHoaDon";
             this.btInHoaDon.Size = new System.Drawing.Size(155, 66);
             this.btInHoaDon.TabIndex = 1;
@@ -231,6 +181,7 @@ namespace Project
             this.txtSearchHoaDon.Size = new System.Drawing.Size(290, 30);
             this.txtSearchHoaDon.TabIndex = 0;
             this.txtSearchHoaDon.Text = "Search";
+            this.txtSearchHoaDon.TextChanged += new System.EventHandler(this.txtSearchHoaDon_TextChanged);
             this.txtSearchHoaDon.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearchHoaDon.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
@@ -243,7 +194,7 @@ namespace Project
             this.tabLichSu.HorizontalScrollbarSize = 1;
             this.tabLichSu.Location = new System.Drawing.Point(4, 54);
             this.tabLichSu.Name = "tabLichSu";
-            this.tabLichSu.Size = new System.Drawing.Size(1067, 626);
+            this.tabLichSu.Size = new System.Drawing.Size(1289, 626);
             this.tabLichSu.TabIndex = 1;
             this.tabLichSu.Text = "Lịch Sử Thanh Toán";
             this.tabLichSu.VerticalScrollbarBarColor = true;
@@ -268,7 +219,7 @@ namespace Project
             this.dtGridViewLsThanhToan.Name = "dtGridViewLsThanhToan";
             this.dtGridViewLsThanhToan.RowHeadersWidth = 51;
             this.dtGridViewLsThanhToan.RowTemplate.Height = 24;
-            this.dtGridViewLsThanhToan.Size = new System.Drawing.Size(1067, 626);
+            this.dtGridViewLsThanhToan.Size = new System.Drawing.Size(1289, 626);
             this.dtGridViewLsThanhToan.TabIndex = 5;
             // 
             // lsSTT
@@ -331,18 +282,97 @@ namespace Project
             this.lsThuChi.Name = "lsThuChi";
             this.lsThuChi.Width = 150;
             // 
+            // MaPhieu
+            // 
+            this.MaPhieu.DataPropertyName = "MaPhieu";
+            this.MaPhieu.HeaderText = "Mã Phiếu";
+            this.MaPhieu.MinimumWidth = 6;
+            this.MaPhieu.Name = "MaPhieu";
+            this.MaPhieu.Width = 125;
+            // 
+            // ThoiGian
+            // 
+            this.ThoiGian.DataPropertyName = "NgayGiaoDich";
+            this.ThoiGian.HeaderText = "Ngày Giao Dịch";
+            this.ThoiGian.MinimumWidth = 6;
+            this.ThoiGian.Name = "ThoiGian";
+            this.ThoiGian.Width = 140;
+            // 
+            // KhachHang
+            // 
+            this.KhachHang.DataPropertyName = "TenKhachHang";
+            this.KhachHang.HeaderText = "Khách Hàng";
+            this.KhachHang.MinimumWidth = 6;
+            this.KhachHang.Name = "KhachHang";
+            this.KhachHang.Width = 160;
+            // 
+            // TenMatHang
+            // 
+            this.TenMatHang.DataPropertyName = "TenMatHang";
+            this.TenMatHang.HeaderText = "Sản Phẩm";
+            this.TenMatHang.MinimumWidth = 6;
+            this.TenMatHang.Name = "TenMatHang";
+            this.TenMatHang.Width = 125;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.DataPropertyName = "GiaBan";
+            dataGridViewCellStyle1.Format = "N0";
+            this.GiaBan.DefaultCellStyle = dataGridViewCellStyle1;
+            this.GiaBan.HeaderText = "Giá Bán";
+            this.GiaBan.MinimumWidth = 6;
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.Width = 125;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số Lượng";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.Width = 125;
+            // 
+            // TongGia
+            // 
+            this.TongGia.DataPropertyName = "TongGia";
+            dataGridViewCellStyle2.Format = "N0";
+            this.TongGia.DefaultCellStyle = dataGridViewCellStyle2;
+            this.TongGia.HeaderText = "Tổng Giá";
+            this.TongGia.MinimumWidth = 6;
+            this.TongGia.Name = "TongGia";
+            this.TongGia.Width = 140;
+            // 
+            // KhachTra
+            // 
+            this.KhachTra.DataPropertyName = "KhachTra";
+            dataGridViewCellStyle3.Format = "N0";
+            this.KhachTra.DefaultCellStyle = dataGridViewCellStyle3;
+            this.KhachTra.HeaderText = "Khách Trả";
+            this.KhachTra.MinimumWidth = 6;
+            this.KhachTra.Name = "KhachTra";
+            this.KhachTra.Width = 150;
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "No";
+            this.No.HeaderText = "Nợ";
+            this.No.MinimumWidth = 6;
+            this.No.Name = "No";
+            this.No.Width = 125;
+            // 
             // frmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1075, 684);
+            this.ClientSize = new System.Drawing.Size(1297, 684);
             this.Controls.Add(this.metroTabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmHoaDon";
             this.Text = "frmHoaDon";
+            this.Load += new System.EventHandler(this.frmHoaDon_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.tabHoaDon.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -366,14 +396,6 @@ namespace Project
         private System.Windows.Forms.TextBox txtSearchHoaDon;
         private System.Windows.Forms.DataGridView dtGridViewHoaDon;
         private System.Windows.Forms.Button btInHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGian;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KhachTra;
         private System.Windows.Forms.DataGridView dtGridViewLsThanhToan;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsMaPhieu;
@@ -383,5 +405,14 @@ namespace Project
         private System.Windows.Forms.DataGridViewComboBoxColumn lsPhuongThuc;
         private System.Windows.Forms.DataGridViewComboBoxColumn lsTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsThuChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGian;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenMatHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KhachTra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
     }
 }

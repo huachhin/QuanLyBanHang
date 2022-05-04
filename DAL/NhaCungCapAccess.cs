@@ -1,56 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FastMember;
+using DTO;
 
 namespace DAL
 {
     public class NhaCungCapAccess
     {
-        private DatabaseAccess dbConnection;
-        public NhaCungCapAccess()
+        public DataTable LoadForm()
         {
-            dbConnection = new DatabaseAccess();
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var query = from q in db.NhaCungCaps
+                            select new
+                            {
+                                MaNhaCungCap = q.MaNhaCungCap,
+                                TenNhaCungCap = q.TenNhaCungCap,
+                                DiaChi = q.DiaChi,
+                                SDT = q.SDT,
+                                Email = q.Email
+                            };
+                DataTable dt = new DataTable();
+                var reader = ObjectReader.Create(query);
+                dt.Load(reader);
+                return dt;
+            }
         }
-        private SqlParameter[] Parameter(string maNCC, string tenNCC, string diaChi, string sdt, string matHang)
+        public void InsertNCC(string mNcc, string tenNcc, string diaChi, string email, string sdt)
         {
-            SqlParameter[] sqlParameters = new SqlParameter[5];
-            sqlParameters[0] = new SqlParameter("@maNCC", System.Data.SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(maNCC);
-            sqlParameters[1] = new SqlParameter("@tenNCC", System.Data.SqlDbType.NVarChar);
-            sqlParameters[1].Value = Convert.ToString(tenNCC);
-            sqlParameters[2] = new SqlParameter("@diaChi", System.Data.SqlDbType.NVarChar);
-            sqlParameters[2].Value = Convert.ToString(diaChi);
-            sqlParameters[3] = new SqlParameter("@sdt", System.Data.SqlDbType.VarChar);
-            sqlParameters[3].Value = Convert.ToString(sdt);
-            sqlParameters[4] = new SqlParameter("@matHang", System.Data.SqlDbType.NVarChar);
-            sqlParameters[4].Value = Convert.ToString(matHang);
-            return sqlParameters;
-        }
-        public void InsertNCC(string maNCC, string tenNCC, string diaChi, string sdt, string matHang)
-        {
-            const string sql = "Insert into NhaCungCap(MaNhaCungCap, TenNhaCungCap, DiaChi, SDT, MatHang) values(@maNCC, @tenNCC, @diaChi, @sdt, @matHang)";
-
-            SqlParameter[] sqlParameters = Parameter(maNCC, tenNCC, diaChi, sdt, matHang);
-            dbConnection.executeQuery(sql, sqlParameters);
-        }
-        public void Update(string maNCC, string tenNCC, string diaChi, string sdt, string matHang)
-        {
-            const string sql = "Update NhaCungCap set TenNhaCungCap = @tenNCC, DiaChi = @diaChi, SDT = @sdt, MatHang = @matHang  where MaNhaCungCap = @maNCC";
-
-            SqlParameter[] sqlParameters = Parameter(maNCC, tenNCC, diaChi, sdt, matHang);
-            dbConnection.executeQuery(sql, sqlParameters);
-        }
-        public void Del(string maNCC)
-        {
-            const string sql = "Delete from NhaCungCap where MaNhaCungCap = @maNCC";
-
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@maNCC", System.Data.SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(maNCC);
-            dbConnection.executeQuery(sql, sqlParameters);
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var tim = db.NhaCungCaps.SingleOrDefault(t => t.MaNhaCungCap == mNcc);
+                if (tim != null)
+                {
+                    tim.TenNhaCungCap = tenNcc;
+                    tim.DiaChi = diaChi;
+                    tim.SDT = sdt;
+                    tim.Email = email;
+                }
+                else
+                {
+                    var ncc = new NhaCungCap
+                    {
+                        MaNhaCungCap = mNcc,
+                        TenNhaCungCap = tenNcc,
+                        DiaChi = diaChi,
+                        Email = email,
+                        SDT = sdt,
+                    };
+                    db.NhaCungCaps.Add(ncc);
+                }
+                db.SaveChanges();
+            }
         }
     }
 }

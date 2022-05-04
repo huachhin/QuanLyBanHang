@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +15,13 @@ namespace BLL
         {
             nccAccess = new NhaCungCapAccess();
         }
-        public void ThemNCC(string maNCC, string tenNCC, string diaChi, string sdt, string matHang)
+        public DataTable LamMoiForm()
         {
-            nccAccess.InsertNCC(maNCC, tenNCC, diaChi, sdt, matHang);
+            return nccAccess.LoadForm();
         }
-        public void CapNhatNCC(string maNCC, string tenNCC, string diaChi, string sdt, string matHang)
+        public void Them(string mNcc, string tenNcc, string diaChi, string email, string sdt)
         {
-            nccAccess.Update(maNCC, tenNCC, diaChi, sdt, matHang);
-        }
-        public void XoaNCC(string maNCC)
-        {
-            nccAccess.Del(maNCC);
+            nccAccess.InsertNCC(mNcc, tenNcc, diaChi, email, sdt);
         }
     }
 }
