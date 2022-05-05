@@ -71,6 +71,7 @@ namespace Project
             this.dtGridViewNCC.RowTemplate.Height = 24;
             this.dtGridViewNCC.Size = new System.Drawing.Size(1084, 597);
             this.dtGridViewNCC.TabIndex = 7;
+            this.dtGridViewNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewNCC_CellClick);
             this.dtGridViewNCC.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtGridViewNCC_RowValidating);
             // 
             // MaNCC
@@ -135,6 +136,7 @@ namespace Project
             this.btXoaNCC.Text = "Xóa Nhà CC";
             this.btXoaNCC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btXoaNCC.UseVisualStyleBackColor = false;
+            this.btXoaNCC.Click += new System.EventHandler(this.btXoaNCC_Click);
             // 
             // btThemNCC
             // 
