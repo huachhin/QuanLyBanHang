@@ -54,5 +54,17 @@ namespace Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btXoaNCC_Click(object sender, EventArgs e)
+        {
+            nhaCungCapBLL.XoaNCC(maNcc);
+            LoadForm();
+        }
+
+        private void dtGridViewNCC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1 || e.RowIndex == (dtGridViewNCC.RowCount - 1)) return;
+            maNcc = dtGridViewNCC.Rows[e.RowIndex].Cells["MaNCC"].Value.ToString();
+        }
     }
 }

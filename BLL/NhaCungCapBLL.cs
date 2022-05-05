@@ -23,5 +23,9 @@ namespace BLL
         {
             nccAccess.InsertNCC(mNcc, tenNcc, diaChi, email, sdt);
         }
+        public void XoaNCC(string mNcc)
+        {
+            nccAccess.DelNCC(mNcc);
+        }
     }
 }

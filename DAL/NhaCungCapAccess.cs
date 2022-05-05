@@ -58,5 +58,17 @@ namespace DAL
                 db.SaveChanges();
             }
         }
+        public void DelNCC(string mNcc)
+        {
+            using (var db = new QuanLyBanDienThoaiEntities())
+            {
+                var tim = db.NhaCungCaps.SingleOrDefault(t => t.MaNhaCungCap == mNcc);
+                if (tim != null)
+                {
+                    db.NhaCungCaps.Remove(tim);
+                }
+                db.SaveChanges();
+            }
+        }
     }
 }

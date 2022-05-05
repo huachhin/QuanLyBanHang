@@ -28,45 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvSanPham = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvGioHang = new System.Windows.Forms.ListView();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnTT = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.lvSanPham = new System.Windows.Forms.ListView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.tabThietBi = new MetroFramework.Controls.MetroTabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tabNhanVien = new MetroFramework.Controls.MetroTabPage();
+            this.button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.metroTabControl1.SuspendLayout();
+            this.tabThietBi.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lvSanPham
+            // panel1
             // 
-            this.lvSanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
-            this.lvSanPham.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader10});
-            this.lvSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvSanPham.HideSelection = false;
-            this.lvSanPham.Location = new System.Drawing.Point(24, 70);
-            this.lvSanPham.Margin = new System.Windows.Forms.Padding(5);
-            this.lvSanPham.Name = "lvSanPham";
-            this.lvSanPham.Size = new System.Drawing.Size(620, 502);
-            this.lvSanPham.TabIndex = 1;
-            this.lvSanPham.UseCompatibleStateImageBehavior = false;
-            this.lvSanPham.View = System.Windows.Forms.View.Details;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 614);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1333, 94);
+            this.panel1.TabIndex = 4;
             // 
             // columnHeader2
             // 
@@ -93,110 +84,122 @@
             this.columnHeader10.Text = "Giá";
             this.columnHeader10.Width = 125;
             // 
-            // lvGioHang
+            // lvSanPham
             // 
-            this.lvGioHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
-            this.lvGioHang.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
-            this.lvGioHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvGioHang.HideSelection = false;
-            this.lvGioHang.Location = new System.Drawing.Point(17, 70);
-            this.lvGioHang.Margin = new System.Windows.Forms.Padding(5);
-            this.lvGioHang.Name = "lvGioHang";
-            this.lvGioHang.Size = new System.Drawing.Size(626, 502);
-            this.lvGioHang.TabIndex = 0;
-            this.lvGioHang.UseCompatibleStateImageBehavior = false;
-            this.lvGioHang.View = System.Windows.Forms.View.Details;
-            this.lvGioHang.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            this.lvSanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
+            this.lvSanPham.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader10});
+            this.lvSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvSanPham.HideSelection = false;
+            this.lvSanPham.Location = new System.Drawing.Point(0, 0);
+            this.lvSanPham.Margin = new System.Windows.Forms.Padding(5);
+            this.lvSanPham.Name = "lvSanPham";
+            this.lvSanPham.Size = new System.Drawing.Size(1325, 556);
+            this.lvSanPham.TabIndex = 1;
+            this.lvSanPham.UseCompatibleStateImageBehavior = false;
+            this.lvSanPham.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader6
+            // panel2
             // 
-            this.columnHeader6.Text = "Mã sản phẩm";
-            this.columnHeader6.Width = 150;
+            this.panel2.Controls.Add(this.metroTabControl1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1333, 614);
+            this.panel2.TabIndex = 5;
             // 
-            // columnHeader7
+            // metroTabControl1
             // 
-            this.columnHeader7.Text = "Tên sản phẩm";
-            this.columnHeader7.Width = 150;
+            this.metroTabControl1.Controls.Add(this.tabThietBi);
+            this.metroTabControl1.Controls.Add(this.tabNhanVien);
+            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Tall;
+            this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
+            this.metroTabControl1.ItemSize = new System.Drawing.Size(250, 50);
+            this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.metroTabControl1.Name = "metroTabControl1";
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(1333, 614);
+            this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.metroTabControl1.TabIndex = 3;
+            this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTabControl1.UseCustomForeColor = true;
+            this.metroTabControl1.UseSelectable = true;
             // 
-            // columnHeader8
+            // tabThietBi
             // 
-            this.columnHeader8.Text = "Giá bán";
-            this.columnHeader8.Width = 125;
+            this.tabThietBi.BackColor = System.Drawing.Color.White;
+            this.tabThietBi.Controls.Add(this.panel3);
+            this.tabThietBi.HorizontalScrollbarBarColor = true;
+            this.tabThietBi.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabThietBi.HorizontalScrollbarSize = 1;
+            this.tabThietBi.Location = new System.Drawing.Point(4, 54);
+            this.tabThietBi.Name = "tabThietBi";
+            this.tabThietBi.Size = new System.Drawing.Size(1325, 556);
+            this.tabThietBi.TabIndex = 0;
+            this.tabThietBi.Text = "Thiết Bị";
+            this.tabThietBi.VerticalScrollbarBarColor = true;
+            this.tabThietBi.VerticalScrollbarHighlightOnWheel = false;
+            this.tabThietBi.VerticalScrollbarSize = 1;
             // 
-            // columnHeader9
+            // panel3
             // 
-            this.columnHeader9.Text = "Số lượng";
-            this.columnHeader9.Width = 100;
+            this.panel3.Controls.Add(this.lvSanPham);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1325, 556);
+            this.panel3.TabIndex = 3;
             // 
-            // groupBox1
+            // tabNhanVien
             // 
-            this.groupBox1.Controls.Add(this.lvSanPham);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(661, 608);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách sản phẩm";
+            this.tabNhanVien.BackColor = System.Drawing.Color.White;
+            this.tabNhanVien.HorizontalScrollbarBarColor = true;
+            this.tabNhanVien.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabNhanVien.HorizontalScrollbarSize = 1;
+            this.tabNhanVien.Location = new System.Drawing.Point(4, 54);
+            this.tabNhanVien.Name = "tabNhanVien";
+            this.tabNhanVien.Size = new System.Drawing.Size(1325, 556);
+            this.tabNhanVien.TabIndex = 1;
+            this.tabNhanVien.Text = "Tình Trạng Nhân Viên";
+            this.tabNhanVien.VerticalScrollbarBarColor = true;
+            this.tabNhanVien.VerticalScrollbarHighlightOnWheel = false;
+            this.tabNhanVien.VerticalScrollbarSize = 1;
             // 
-            // panel1
+            // button
             // 
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnTT);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 614);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1333, 94);
-            this.panel1.TabIndex = 4;
+            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button.BackColor = System.Drawing.Color.Pink;
+            this.button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button.Location = new System.Drawing.Point(1094, 20);
+            this.button.Margin = new System.Windows.Forms.Padding(5);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(162, 54);
+            this.button.TabIndex = 6;
+            this.button.Text = "Trả hàng";
+            this.button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button.UseVisualStyleBackColor = false;
             // 
-            // btnCancel
+            // button1
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Pink;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = global::Project.Properties.Resources.cancel1;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(826, 21);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCancel.Size = new System.Drawing.Size(164, 54);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "   Hủy bỏ";
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnTT
-            // 
-            this.btnTT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
-            this.btnTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTT.Image = global::Project.Properties.Resources.icons8_online_payment_32px;
-            this.btnTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTT.Location = new System.Drawing.Point(1052, 21);
-            this.btnTT.Margin = new System.Windows.Forms.Padding(5);
-            this.btnTT.Name = "btnTT";
-            this.btnTT.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTT.Size = new System.Drawing.Size(168, 54);
-            this.btnTT.TabIndex = 1;
-            this.btnTT.Text = "Thanh toán";
-            this.btnTT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTT.UseVisualStyleBackColor = false;
-            this.btnTT.Click += new System.EventHandler(this.btnTT_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lvGioHang);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(667, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(666, 608);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh sách giỏ hàng";
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(889, 20);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 54);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Thêm hàng";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // frmCuaHang
             // 
@@ -204,38 +207,37 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1333, 708);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmCuaHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cửa hàng";
-            this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.metroTabControl1.ResumeLayout(false);
+            this.tabThietBi.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnTT;
-        private System.Windows.Forms.ListView lvSanPham;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ListView lvGioHang;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListView lvSanPham;
+        private System.Windows.Forms.Panel panel2;
+        private MetroFramework.Controls.MetroTabControl metroTabControl1;
+        private MetroFramework.Controls.MetroTabPage tabThietBi;
+        private System.Windows.Forms.Panel panel3;
+        private MetroFramework.Controls.MetroTabPage tabNhanVien;
+        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.Button button1;
     }
 }

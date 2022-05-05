@@ -93,7 +93,7 @@ namespace Project
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1121, 73);
             this.label1.TabIndex = 0;
-            this.label1.Text = "QUẢN LÝ BÁN HÀNG";
+            this.label1.Text = "STORE MANAGER";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
