@@ -33,6 +33,7 @@ namespace Project
             nhaCungCapBLL.Them(maNcc, tenNcc, diaChi, email, sdt);
             LoadForm();
         }
+
         private string maNcc;
         private string tenNcc;
         private string diaChi;

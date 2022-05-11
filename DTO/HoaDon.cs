@@ -23,7 +23,6 @@ namespace DTO
         public Nullable<int> KhachTra { get; set; }
         public string PhuongThuc { get; set; }
         public string TrangThai { get; set; }
-        public Nullable<int> TongGia { get; set; }
         public string No { get; set; }
     
         public virtual CuaHang CuaHang { get; set; }

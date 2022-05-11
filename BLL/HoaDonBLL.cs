@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using DAL;
 
 namespace BLL
@@ -19,13 +20,31 @@ namespace BLL
         {
             return hoaDonAccess.LoadHoaDon();
         }
+        public DataTable LamMoiLichSu()
+        {
+            return hoaDonAccess.LoadLichSu();
+        }
+        public DataTable ThongTinChiTiet(string mp)
+        {
+            return hoaDonAccess.HienThiChiTiet(mp);
+        }
         public DataTable TimKiem(string valueSearch)
         {
             return hoaDonAccess.Search(valueSearch);
         }
-        public DataTable Gop()
+        public void CapNhatVon(string mng, int von, string soVonRut)
         {
-            return hoaDonAccess.GopDon();
+            if (soVonRut == "")
+            {
+                soVonRut = "0";
+            }
+            int temp = Convert.ToInt32(soVonRut);
+            temp = von + temp;
+            hoaDonAccess.UpdateVon(mng, temp);
+        }
+        public void Gop(string[] makh)
+        {
+            hoaDonAccess.GopDon(makh);
         }
     }
 }
