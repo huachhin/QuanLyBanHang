@@ -29,6 +29,7 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,27 +38,29 @@ namespace Project
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtGridViewHoaDon = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbSoTienTT = new System.Windows.Forms.TextBox();
             this.btGop = new System.Windows.Forms.Button();
+            this.btThanhToan = new System.Windows.Forms.Button();
             this.btInHoaDon = new System.Windows.Forms.Button();
             this.txtSearchHoaDon = new System.Windows.Forms.TextBox();
             this.tabLichSu = new MetroFramework.Controls.MetroTabPage();
             this.dtGridViewLsThanhToan = new System.Windows.Forms.DataGridView();
-            this.lsSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsMaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsNguoiTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsGiaTriPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lsPhuongThuc = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.lsTrangThai = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.lsThuChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsPhuongThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KhachTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KhachTraHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.tabHoaDon.SuspendLayout();
@@ -120,11 +123,12 @@ namespace Project
             this.MaPhieu,
             this.ThoiGian,
             this.KhachHang,
+            this.MaKhachHang,
             this.TenMatHang,
             this.GiaBan,
             this.SoLuong,
             this.TongGia,
-            this.KhachTra,
+            this.KhachTraHD,
             this.No});
             this.dtGridViewHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGridViewHoaDon.Location = new System.Drawing.Point(0, 0);
@@ -133,10 +137,14 @@ namespace Project
             this.dtGridViewHoaDon.RowTemplate.Height = 24;
             this.dtGridViewHoaDon.Size = new System.Drawing.Size(1289, 548);
             this.dtGridViewHoaDon.TabIndex = 4;
+            this.dtGridViewHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewHoaDon_CellClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.tbSoTienTT);
             this.panel1.Controls.Add(this.btGop);
+            this.panel1.Controls.Add(this.btThanhToan);
             this.panel1.Controls.Add(this.btInHoaDon);
             this.panel1.Controls.Add(this.txtSearchHoaDon);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -145,12 +153,30 @@ namespace Project
             this.panel1.Size = new System.Drawing.Size(1289, 78);
             this.panel1.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(424, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Số tiền TT:";
+            // 
+            // tbSoTienTT
+            // 
+            this.tbSoTienTT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSoTienTT.Location = new System.Drawing.Point(540, 24);
+            this.tbSoTienTT.Name = "tbSoTienTT";
+            this.tbSoTienTT.Size = new System.Drawing.Size(211, 30);
+            this.tbSoTienTT.TabIndex = 8;
+            // 
             // btGop
             // 
             this.btGop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btGop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.btGop.Image = global::Project.Properties.Resources.icons8_merge_documents_48px;
-            this.btGop.Location = new System.Drawing.Point(1070, 5);
+            this.btGop.Location = new System.Drawing.Point(1124, 6);
             this.btGop.Name = "btGop";
             this.btGop.Size = new System.Drawing.Size(155, 66);
             this.btGop.TabIndex = 1;
@@ -159,12 +185,26 @@ namespace Project
             this.btGop.UseVisualStyleBackColor = false;
             this.btGop.Click += new System.EventHandler(this.btGop_Click);
             // 
+            // btThanhToan
+            // 
+            this.btThanhToan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btThanhToan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
+            this.btThanhToan.Image = global::Project.Properties.Resources.icons8_online_payment_32px;
+            this.btThanhToan.Location = new System.Drawing.Point(779, 6);
+            this.btThanhToan.Name = "btThanhToan";
+            this.btThanhToan.Size = new System.Drawing.Size(155, 66);
+            this.btThanhToan.TabIndex = 1;
+            this.btThanhToan.Text = "Thanh Toán";
+            this.btThanhToan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btThanhToan.UseVisualStyleBackColor = false;
+            this.btThanhToan.Click += new System.EventHandler(this.btThanhToan_Click);
+            // 
             // btInHoaDon
             // 
             this.btInHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btInHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.btInHoaDon.Image = global::Project.Properties.Resources.icons8_print_48px_1;
-            this.btInHoaDon.Location = new System.Drawing.Point(858, 6);
+            this.btInHoaDon.Location = new System.Drawing.Point(954, 6);
             this.btInHoaDon.Name = "btInHoaDon";
             this.btInHoaDon.Size = new System.Drawing.Size(155, 66);
             this.btInHoaDon.TabIndex = 1;
@@ -206,14 +246,12 @@ namespace Project
             this.dtGridViewLsThanhToan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(234)))));
             this.dtGridViewLsThanhToan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridViewLsThanhToan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.lsSTT,
             this.lsMaPhieu,
+            this.MaKH,
             this.lsThoiGian,
             this.lsNguoiTao,
             this.lsGiaTriPhieu,
-            this.lsPhuongThuc,
-            this.lsTrangThai,
-            this.lsThuChi});
+            this.lsPhuongThuc});
             this.dtGridViewLsThanhToan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGridViewLsThanhToan.Location = new System.Drawing.Point(0, 0);
             this.dtGridViewLsThanhToan.Name = "dtGridViewLsThanhToan";
@@ -221,23 +259,27 @@ namespace Project
             this.dtGridViewLsThanhToan.RowTemplate.Height = 24;
             this.dtGridViewLsThanhToan.Size = new System.Drawing.Size(1289, 626);
             this.dtGridViewLsThanhToan.TabIndex = 5;
-            // 
-            // lsSTT
-            // 
-            this.lsSTT.HeaderText = "STT";
-            this.lsSTT.MinimumWidth = 6;
-            this.lsSTT.Name = "lsSTT";
-            this.lsSTT.Width = 60;
+            this.dtGridViewLsThanhToan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLsThanhToan_CellClick);
             // 
             // lsMaPhieu
             // 
+            this.lsMaPhieu.DataPropertyName = "MaPhieu";
             this.lsMaPhieu.HeaderText = "Mã Phiếu";
             this.lsMaPhieu.MinimumWidth = 6;
             this.lsMaPhieu.Name = "lsMaPhieu";
             this.lsMaPhieu.Width = 125;
             // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "MaKhachHang";
+            this.MaKH.HeaderText = "Mã Khách Hàng";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.Width = 200;
+            // 
             // lsThoiGian
             // 
+            this.lsThoiGian.DataPropertyName = "NgayGiaoDich";
             this.lsThoiGian.HeaderText = "Thời Gian";
             this.lsThoiGian.MinimumWidth = 6;
             this.lsThoiGian.Name = "lsThoiGian";
@@ -245,6 +287,7 @@ namespace Project
             // 
             // lsNguoiTao
             // 
+            this.lsNguoiTao.DataPropertyName = "TenNhanVien";
             this.lsNguoiTao.HeaderText = "Người Tạo";
             this.lsNguoiTao.MinimumWidth = 6;
             this.lsNguoiTao.Name = "lsNguoiTao";
@@ -252,35 +295,22 @@ namespace Project
             // 
             // lsGiaTriPhieu
             // 
+            this.lsGiaTriPhieu.DataPropertyName = "TongGia";
+            dataGridViewCellStyle4.Format = "N0";
+            this.lsGiaTriPhieu.DefaultCellStyle = dataGridViewCellStyle4;
             this.lsGiaTriPhieu.HeaderText = "Giá Trị Phiếu";
             this.lsGiaTriPhieu.MinimumWidth = 6;
             this.lsGiaTriPhieu.Name = "lsGiaTriPhieu";
-            this.lsGiaTriPhieu.Width = 125;
+            this.lsGiaTriPhieu.Width = 200;
             // 
             // lsPhuongThuc
             // 
+            this.lsPhuongThuc.DataPropertyName = "PhuongThuc";
             this.lsPhuongThuc.HeaderText = "Phương Thức TT";
             this.lsPhuongThuc.MinimumWidth = 6;
             this.lsPhuongThuc.Name = "lsPhuongThuc";
             this.lsPhuongThuc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lsPhuongThuc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.lsPhuongThuc.Width = 125;
-            // 
-            // lsTrangThai
-            // 
-            this.lsTrangThai.HeaderText = "Trạng Thái";
-            this.lsTrangThai.MinimumWidth = 6;
-            this.lsTrangThai.Name = "lsTrangThai";
-            this.lsTrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lsTrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.lsTrangThai.Width = 140;
-            // 
-            // lsThuChi
-            // 
-            this.lsThuChi.HeaderText = "Thu/Chi";
-            this.lsThuChi.MinimumWidth = 6;
-            this.lsThuChi.Name = "lsThuChi";
-            this.lsThuChi.Width = 150;
+            this.lsPhuongThuc.Width = 200;
             // 
             // MaPhieu
             // 
@@ -305,6 +335,15 @@ namespace Project
             this.KhachHang.MinimumWidth = 6;
             this.KhachHang.Name = "KhachHang";
             this.KhachHang.Width = 160;
+            // 
+            // MaKhachHang
+            // 
+            this.MaKhachHang.DataPropertyName = "MaKhachHang";
+            this.MaKhachHang.HeaderText = "Mã Khách Hàng";
+            this.MaKhachHang.MinimumWidth = 6;
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.Visible = false;
+            this.MaKhachHang.Width = 125;
             // 
             // TenMatHang
             // 
@@ -335,22 +374,24 @@ namespace Project
             // TongGia
             // 
             this.TongGia.DataPropertyName = "TongGia";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.Format = "N0";
             this.TongGia.DefaultCellStyle = dataGridViewCellStyle2;
             this.TongGia.HeaderText = "Tổng Giá";
             this.TongGia.MinimumWidth = 6;
             this.TongGia.Name = "TongGia";
+            this.TongGia.ReadOnly = true;
             this.TongGia.Width = 140;
             // 
-            // KhachTra
+            // KhachTraHD
             // 
-            this.KhachTra.DataPropertyName = "KhachTra";
+            this.KhachTraHD.DataPropertyName = "KhachTra";
             dataGridViewCellStyle3.Format = "N0";
-            this.KhachTra.DefaultCellStyle = dataGridViewCellStyle3;
-            this.KhachTra.HeaderText = "Khách Trả";
-            this.KhachTra.MinimumWidth = 6;
-            this.KhachTra.Name = "KhachTra";
-            this.KhachTra.Width = 150;
+            this.KhachTraHD.DefaultCellStyle = dataGridViewCellStyle3;
+            this.KhachTraHD.HeaderText = "Khách Trả";
+            this.KhachTraHD.MinimumWidth = 6;
+            this.KhachTraHD.Name = "KhachTraHD";
+            this.KhachTraHD.Width = 125;
             // 
             // No
             // 
@@ -358,6 +399,7 @@ namespace Project
             this.No.HeaderText = "Nợ";
             this.No.MinimumWidth = 6;
             this.No.Name = "No";
+            this.No.Visible = false;
             this.No.Width = 125;
             // 
             // frmHoaDon
@@ -397,22 +439,24 @@ namespace Project
         private System.Windows.Forms.DataGridView dtGridViewHoaDon;
         private System.Windows.Forms.Button btInHoaDon;
         private System.Windows.Forms.DataGridView dtGridViewLsThanhToan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsSTT;
+        private System.Windows.Forms.Button btThanhToan;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbSoTienTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsMaPhieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsThoiGian;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsNguoiTao;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsGiaTriPhieu;
-        private System.Windows.Forms.DataGridViewComboBoxColumn lsPhuongThuc;
-        private System.Windows.Forms.DataGridViewComboBoxColumn lsTrangThai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsThuChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPhuongThuc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGian;
         private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMatHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KhachTra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KhachTraHD;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
     }
 }

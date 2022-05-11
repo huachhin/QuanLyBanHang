@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4765ca102c9a4132aee351ba2ff5a0c6" Name="Diagram1" ZoomLevel="105">
-        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.CuaHang" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.HoaDon" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.KhachHang" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.Kho" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.NhaCungCap" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="4765ca102c9a4132aee351ba2ff5a0c6" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.CuaHang" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.HoaDon" Width="1.5" PointX="3.125" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.KhachHang" Width="1.5" PointX="0.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.Kho" Width="1.5" PointX="6.625" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.NhaCungCap" Width="1.5" PointX="3.875" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.NhanVien" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanDienThoaiModel.TaiChinh" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />

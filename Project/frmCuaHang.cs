@@ -7,30 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FastMember;
+using BLL;
 
 namespace Project
 {
     public partial class frmCuaHang : Form
     {
+        private CuaHangBLL cuaHangBLL;
         public frmCuaHang()
         {
             InitializeComponent();
+            cuaHangBLL = new CuaHangBLL();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void frmCuaHang_Load(object sender, EventArgs e)
         {
-            
+            LoadForm();
         }
-
-        private void btnTT_Click(object sender, EventArgs e)
-        {
-            frmHoaDon f = new frmHoaDon();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadForm()
         {
 
         }

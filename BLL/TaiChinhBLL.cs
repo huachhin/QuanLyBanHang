@@ -37,9 +37,38 @@ namespace BLL
                 {
                     soVonRut = "0";
                 }
+                KTraHopLe kTraHopLe = new KTraHopLe();
+                if (!kTraHopLe.IsValidMail(email))
+                {
+                    MessageBox.Show("Email nhập không hợp lệ");
+                    return;
+                }
                 int temp = Convert.ToInt32(soVonRut);
                 von = von + temp;
                 taiChinhAccess.InsertVon(mng, tng, von, tg, email, nguon);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void CapNhat(string mng, string tng, int von, DateTime tg, string email, string nguon, string soVonRut)
+        {
+            try
+            {
+                if (soVonRut == "")
+                {
+                    soVonRut = "0";
+                }
+                KTraHopLe kTraHopLe = new KTraHopLe();
+                if (!kTraHopLe.IsValidMail(email))
+                {
+                    MessageBox.Show("Email nhập không hợp lệ");
+                    return;
+                }
+                int temp = Convert.ToInt32(soVonRut);
+                von = von + temp;
+                taiChinhAccess.Update(mng, tng, von, tg, email, nguon);
             }
             catch (Exception ex)
             {
@@ -63,9 +92,13 @@ namespace BLL
                 MessageBox.Show(ex.Message);
             }
         }
-        public DataTable CapNhatBieuDo()
+        public DataTable CapNhatBieuDoYear(int value)
+        {      
+            return taiChinhAccess.LoadThongKe(value);
+        }
+        public int[] CapNhatBieuDoTong(int value)
         {
-            return taiChinhAccess.LoadThongKe();
+            return taiChinhAccess.LoadThongKeTong(value);
         }
     }
 }
