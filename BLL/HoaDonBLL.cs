@@ -16,19 +16,11 @@ namespace BLL
         {
             hoaDonAccess = new HoaDonAccess();
         }
-        public DataTable LamMoiHoaDon()
+        public DataSet LamMoiHoaDon()
         {
             return hoaDonAccess.LoadHoaDon();
         }
-        public DataTable LamMoiLichSu()
-        {
-            return hoaDonAccess.LoadLichSu();
-        }
-        public DataTable ThongTinChiTiet(string mp)
-        {
-            return hoaDonAccess.HienThiChiTiet(mp);
-        }
-        public DataTable TimKiem(string valueSearch)
+        public DataSet TimKiem(string valueSearch)
         {
             return hoaDonAccess.Search(valueSearch);
         }
@@ -41,10 +33,6 @@ namespace BLL
             int temp = Convert.ToInt32(soVonRut);
             temp = von + temp;
             hoaDonAccess.UpdateVon(mng, temp);
-        }
-        public void Gop(string[] makh)
-        {
-            hoaDonAccess.GopDon(makh);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,16 @@ using System.Windows.Forms;
 
 namespace DAL
 {
-    internal class DatabaseAccess
+    public class DatabaseAccess
     {
         private SqlDataAdapter sqlDataAdapter;
         private SqlConnection sqlConnection;
+        
 
         public DatabaseAccess()
         {
             sqlDataAdapter = new SqlDataAdapter();
-            sqlConnection = new SqlConnection("SQL");
+            sqlConnection = new SqlConnection(@"Data Source=NGOCHAI\SQLEXPRESS;Initial Catalog=QuanLyBanDienThoai;Integrated Security=True");
         }
         public SqlConnection openConnection()
         {
@@ -26,39 +28,18 @@ namespace DAL
             }
             return sqlConnection;
         }
-        public void executeQuery(String query, SqlParameter[] sqlParameters)
+        public DataSet executeQuery(String query)
         {
-            using (SqlCommand cmd = new SqlCommand(query, openConnection()))
+            using (sqlDataAdapter = new SqlDataAdapter(query, openConnection()))
             {
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddRange(sqlParameters);
                 try
                 {
-                    cmd.ExecuteNonQuery();
+                    DataSet dataSet = new DataSet();
+                    sqlDataAdapter.Fill(dataSet);
+                    return dataSet;
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    sqlConnection.Close();
-                }
-            }
-        }
-        public SqlDataReader executeReader(String query)
-        {
-            using (SqlCommand cmd = new SqlCommand(query, openConnection()))
-            {
-                cmd.CommandType = System.Data.CommandType.Text;
-                try
-                {
-                    return cmd.ExecuteReader();
-                }
-                catch (Exception ex)
-                {
-
                     MessageBox.Show(ex.Message);
                 }
                 finally
@@ -67,6 +48,27 @@ namespace DAL
                 }
             }
             return null;
+        }
+        public int executeNonQuery(String query)
+        {
+            using (SqlCommand cmd = new SqlCommand(query, openConnection()))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                try
+                {
+                    return cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    sqlConnection.Close();
+                }
+            }
+            return 0;
         }
     }
 }
