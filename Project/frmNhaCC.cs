@@ -15,6 +15,11 @@ namespace Project
     public partial class frmNhaCC : Form
     {
         private NhaCungCapBLL nhaCungCapBLL;
+        private string maNcc;
+        private string tenNcc;
+        private string diaChi;
+        private string email;
+        private string sdt;
         public frmNhaCC()
         {
             InitializeComponent();
@@ -24,21 +29,15 @@ namespace Project
         {
             LoadForm();   
         }
-        private void LoadForm()
+        public void LoadForm()
         {
-            dtGridViewNCC.DataSource = nhaCungCapBLL.LamMoiForm();
+            dtGridViewNCC.DataSource = nhaCungCapBLL.LamMoiForm().Tables[0];
         }
         private void btThemNCC_Click(object sender, EventArgs e)
         {
-            nhaCungCapBLL.Them(maNcc, tenNcc, diaChi, email, sdt);
-            LoadForm();
+            frmCapNhatNCC frmCapNhat = new frmCapNhatNCC(maNcc, tenNcc, diaChi, email, sdt);
+            frmCapNhat.Show();
         }
-
-        private string maNcc;
-        private string tenNcc;
-        private string diaChi;
-        private string email;
-        private string sdt;
         
         private void dtGridViewNCC_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {

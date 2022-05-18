@@ -12,63 +12,26 @@ namespace DAL
 {
     public class NhaCungCapAccess
     {
-        public DataTable LoadForm()
+        private DatabaseAccess databaseAccess;
+        public NhaCungCapAccess()
         {
-            using (var db = new QuanLyBanDienThoaiEntities())
-            {
-                var query = from q in db.NhaCungCaps
-                            select new
-                            {
-                                MaNhaCungCap = q.MaNhaCungCap,
-                                TenNhaCungCap = q.TenNhaCungCap,
-                                DiaChi = q.DiaChi,
-                                SDT = q.SDT,
-                                Email = q.Email
-                            };
-                DataTable dt = new DataTable();
-                var reader = ObjectReader.Create(query);
-                dt.Load(reader);
-                return dt;
-            }
+            databaseAccess = new DatabaseAccess();
         }
-        public void InsertNCC(string mNcc, string tenNcc, string diaChi, string email, string sdt)
+        public DataSet LoadForm()
         {
-            using (var db = new QuanLyBanDienThoaiEntities())
-            {
-                var tim = db.NhaCungCaps.SingleOrDefault(t => t.MaNhaCungCap == mNcc);
-                if (tim != null)
-                {
-                    tim.TenNhaCungCap = tenNcc;
-                    tim.DiaChi = diaChi;
-                    tim.SDT = sdt;
-                    tim.Email = email;
-                }
-                else
-                {
-                    var ncc = new NhaCungCap
-                    {
-                        MaNhaCungCap = mNcc,
-                        TenNhaCungCap = tenNcc,
-                        DiaChi = diaChi,
-                        Email = email,
-                        SDT = sdt,
-                    };
-                    db.NhaCungCaps.Add(ncc);
-                }
-                db.SaveChanges();
-            }
+            string query = "SELECT * FROM NhaCungCap";
+            return databaseAccess.executeQuery(query);
+        }
+        public void InsertNCC(string maNcc, string tenNcc, string diaChi, string email, string sdt)
+        {
+            string query = "INSERT INTO NhaCungCap(MaNhaCungCap, TenNhaCungCap, DiaChi, Email, SDT) " +
+                "VALUES('" + maNcc + "', N'" + tenNcc + "', '" + diaChi + "', '" + email + "','" + sdt + "')";
+            databaseAccess.executeNonQuery(query);
         }
         public void DelNCC(string mNcc)
         {
-            using (var db = new QuanLyBanDienThoaiEntities())
-            {
-                var tim = db.NhaCungCaps.SingleOrDefault(t => t.MaNhaCungCap == mNcc);
-                if (tim != null)
-                {
-                    db.NhaCungCaps.Remove(tim);
-                }
-                db.SaveChanges();
-            }
+            string query = "DELETE NhaCungCap WHERE MaNhaCungCap = '" + mNcc + "'";
+            databaseAccess.executeNonQuery(query);
         }
     }
 }

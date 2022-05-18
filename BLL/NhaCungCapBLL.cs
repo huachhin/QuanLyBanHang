@@ -18,7 +18,7 @@ namespace BLL
             nccAccess = new NhaCungCapAccess();
             KTraHopLe = new KTraHopLe();
         }
-        public DataTable LamMoiForm()
+        public DataSet LamMoiForm()
         {
             return nccAccess.LoadForm();
         }

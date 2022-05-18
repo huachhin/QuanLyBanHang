@@ -7,16 +7,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
 
 namespace Project
 {
     public partial class frmDangNhap : Form
     {
-        public frmDangNhap()
+        private DatabaseAccess databaseAccess;
+        private int frm = 0; // 0 GiaoDien     1 TaiChinh
+        private long doanhThu = 0;
+        public frmDangNhap(int frm, long doanhThu)
         {
             InitializeComponent();
+            databaseAccess = new DatabaseAccess();
+            this.frm = frm;
+            this.doanhThu = doanhThu;
+        }
+        private void btDangNhap_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "SELECT * FROM Username WHERE TaiKhoan = '" + tbUsername.Text + "'";
+                if (frm == 1 && tbUsername.Text != "admin")
+                {
+                    MessageBox.Show("Không được phép truy cập vào Form này!!", "Warrning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DataRow dr = databaseAccess.executeQuery(query).Tables[0].Rows[0];
+                if (dr["TaiKhoan"].ToString().Trim() == tbUsername.Text && dr["MatKhau"].ToString().Trim() == tbPassword.Text)
+                {
+                    this.Hide();
+                    if (frm == 1)
+                    {
+                        frmChiaCoTuc chiaCoTuc = new frmChiaCoTuc(doanhThu);
+                        chiaCoTuc.Show();
+                        return;
+                    }
+                    frmGiaoDien giaoDien = new frmGiaoDien();
+                    giaoDien.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sai thông tin đăng nhập", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        private void linkLabelDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmDangKy dangKy = new frmDangKy();
+            dangKy.Show();
+        }
         private void pbExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -56,14 +98,9 @@ namespace Project
             {
                 tbPassword.Text = "Password";
                 tbPassword.ForeColor = Color.Silver;
+                tbPassword.PasswordChar = '\0';
             }
         }
-
-        private void btDangNhap_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form frm = new frmGiaoDien();
-            frm.Show();
-        }
+        
     }
 }
