@@ -17,7 +17,6 @@ D:\WindowsProgramming\Test\QuanLyBanHang\DTO\bin\Debug\EntityFramework.dll
 D:\WindowsProgramming\Test\QuanLyBanHang\DTO\bin\Debug\EntityFramework.SqlServer.dll
 D:\WindowsProgramming\Test\QuanLyBanHang\DTO\bin\Debug\EntityFramework.xml
 D:\WindowsProgramming\Test\QuanLyBanHang\DTO\bin\Debug\EntityFramework.SqlServer.xml
-D:\WindowsProgramming\Test\QuanLyBanHang\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
 D:\WindowsProgramming\Test\QuanLyBanHang\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\WindowsProgramming\Test\QuanLyBanHang\DTO\obj\Debug\DTO.csproj.CopyComplete
 D:\WindowsProgramming\Test\QuanLyBanHang\DTO\obj\Debug\DTO.dll

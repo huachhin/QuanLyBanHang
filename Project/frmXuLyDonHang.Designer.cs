@@ -32,6 +32,13 @@ namespace Project
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewSanPham = new System.Windows.Forms.DataGridView();
+            this.SanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LyDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbKhachHang = new System.Windows.Forms.Label();
             this.lbMaPhieu = new System.Windows.Forms.Label();
             this.lbNgayGD = new System.Windows.Forms.Label();
@@ -45,13 +52,6 @@ namespace Project
             this.tbNo = new System.Windows.Forms.TextBox();
             this.tbKhachTra = new System.Windows.Forms.TextBox();
             this.tbTongDonHang = new System.Windows.Forms.TextBox();
-            this.SanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.LyDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSanPham)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +76,70 @@ namespace Project
             this.dataGridViewSanPham.Size = new System.Drawing.Size(771, 316);
             this.dataGridViewSanPham.TabIndex = 5;
             this.dataGridViewSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSanPham_CellContentClick);
+            // 
+            // SanPham
+            // 
+            this.SanPham.DataPropertyName = "TenSanPham";
+            this.SanPham.HeaderText = "Sản Phẩm";
+            this.SanPham.MinimumWidth = 6;
+            this.SanPham.Name = "SanPham";
+            this.SanPham.Width = 200;
+            // 
+            // SLuong
+            // 
+            this.SLuong.DataPropertyName = "SoLuong";
+            this.SLuong.HeaderText = "Số Lượng";
+            this.SLuong.MinimumWidth = 6;
+            this.SLuong.Name = "SLuong";
+            this.SLuong.Width = 125;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.DataPropertyName = "GiaBan";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Format = "N0";
+            this.GiaBan.DefaultCellStyle = dataGridViewCellStyle1;
+            this.GiaBan.HeaderText = "Giá Bán";
+            this.GiaBan.MinimumWidth = 6;
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.Width = 140;
+            // 
+            // Delete
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Delete.HeaderText = "";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 125;
+            // 
+            // LyDo
+            // 
+            this.LyDo.HeaderText = "Trả Hàng";
+            this.LyDo.MinimumWidth = 6;
+            this.LyDo.Name = "LyDo";
+            this.LyDo.Width = 200;
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSanPham";
+            this.MaSP.HeaderText = "MaSP";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.Visible = false;
+            this.MaSP.Width = 125;
+            // 
+            // KTra
+            // 
+            this.KTra.DataPropertyName = "KhachTra";
+            this.KTra.HeaderText = "KhachTra";
+            this.KTra.MinimumWidth = 6;
+            this.KTra.Name = "KTra";
+            this.KTra.Visible = false;
+            this.KTra.Width = 125;
             // 
             // lbKhachHang
             // 
@@ -200,6 +264,7 @@ namespace Project
             // 
             this.tbNo.Location = new System.Drawing.Point(167, 588);
             this.tbNo.Name = "tbNo";
+            this.tbNo.ReadOnly = true;
             this.tbNo.Size = new System.Drawing.Size(181, 30);
             this.tbNo.TabIndex = 9;
             // 
@@ -207,6 +272,7 @@ namespace Project
             // 
             this.tbKhachTra.Location = new System.Drawing.Point(570, 531);
             this.tbKhachTra.Name = "tbKhachTra";
+            this.tbKhachTra.ReadOnly = true;
             this.tbKhachTra.Size = new System.Drawing.Size(193, 30);
             this.tbKhachTra.TabIndex = 9;
             // 
@@ -214,72 +280,9 @@ namespace Project
             // 
             this.tbTongDonHang.Location = new System.Drawing.Point(570, 593);
             this.tbTongDonHang.Name = "tbTongDonHang";
+            this.tbTongDonHang.ReadOnly = true;
             this.tbTongDonHang.Size = new System.Drawing.Size(193, 30);
             this.tbTongDonHang.TabIndex = 9;
-            // 
-            // SanPham
-            // 
-            this.SanPham.DataPropertyName = "TenSanPham";
-            this.SanPham.HeaderText = "Sản Phẩm";
-            this.SanPham.MinimumWidth = 6;
-            this.SanPham.Name = "SanPham";
-            this.SanPham.Width = 200;
-            // 
-            // SLuong
-            // 
-            this.SLuong.DataPropertyName = "SoLuong";
-            this.SLuong.HeaderText = "Số Lượng";
-            this.SLuong.MinimumWidth = 6;
-            this.SLuong.Name = "SLuong";
-            this.SLuong.Width = 125;
-            // 
-            // GiaBan
-            // 
-            this.GiaBan.DataPropertyName = "GiaBan";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Format = "N0";
-            this.GiaBan.DefaultCellStyle = dataGridViewCellStyle1;
-            this.GiaBan.HeaderText = "Giá Bán";
-            this.GiaBan.MinimumWidth = 6;
-            this.GiaBan.Name = "GiaBan";
-            this.GiaBan.Width = 140;
-            // 
-            // Delete
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Delete.HeaderText = "";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 125;
-            // 
-            // LyDo
-            // 
-            this.LyDo.HeaderText = "Trả Hàng";
-            this.LyDo.MinimumWidth = 6;
-            this.LyDo.Name = "LyDo";
-            this.LyDo.Width = 200;
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSanPham";
-            this.MaSP.HeaderText = "MaSP";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.Visible = false;
-            this.MaSP.Width = 125;
-            // 
-            // KTra
-            // 
-            this.KTra.DataPropertyName = "KhachTra";
-            this.KTra.HeaderText = "KhachTra";
-            this.KTra.MinimumWidth = 6;
-            this.KTra.Name = "KTra";
-            this.KTra.Visible = false;
-            this.KTra.Width = 125;
             // 
             // frmXuLyDonHang
             // 
