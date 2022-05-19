@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 using DAL;
 
 namespace Project
 {
     public partial class frmXuLyDonHang : Form
     {
-        private DatabaseAccess databaseAccess;
+        private XuLyDonHangBLL xuLyDonHang;
         private string maPhieu;
         private string tenKhachHang;
         int[] soLuong = new int[100];
@@ -23,25 +24,16 @@ namespace Project
         public frmXuLyDonHang(string maPhieu, string tenKhachHang)
         {
             InitializeComponent();
-            databaseAccess = new DatabaseAccess();
             this.maPhieu = maPhieu;
             this.tenKhachHang = tenKhachHang;
+            xuLyDonHang = new XuLyDonHangBLL();
         }
         private void frmXuLyDonHang_Load(object sender, EventArgs e)
         {           
             lbMaPhieu.Text = maPhieu;
             lbKhachHang.Text = tenKhachHang;
-
-            string query = "WITH TMP AS( " +
-                "SELECT GiaBan, TenHang, GioHang.SoLuong, MaPhieu, MaSanPham " +
-                "FROM CuaHang INNER JOIN GioHang " +
-                "ON CuaHang.MaMatHang = GioHang.MaSanPham) " +
-                "SELECT TenHang as TenSanPham, SoLuong, GiaBan, MaSanPham, KhachTra " +
-                "FROM TMP INNER JOIN HoaDon " +
-                "ON TMP.MaPhieu = HoaDon.MaPhieu " +
-                "WHERE HoaDon.MaPhieu = N'" + maPhieu + "'";
-
-            dataGridViewSanPham.DataSource = databaseAccess.executeQuery(query).Tables[0];
+           
+            dataGridViewSanPham.DataSource = xuLyDonHang.LoadForm(maPhieu).Tables[0];
 
             tongGia = 0;
             for (int i = 0; i < dataGridViewSanPham.Rows.Count; i++)
@@ -55,9 +47,9 @@ namespace Project
             {
                 MessageBox.Show("The amount of the refund to the customer is: " + (khachTra - tongGia).ToString(), "Refund", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            tbTongDonHang.Text = tongGia.ToString();
-            tbKhachTra.Text = khachTra.ToString();
-            tbNo.Text = (tongGia - khachTra).ToString();
+            tbTongDonHang.Text = String.Format("{0:N0}", tongGia);
+            tbKhachTra.Text = String.Format("{0:N0}", khachTra);
+            tbNo.Text = String.Format("{0:N0}", (tongGia - khachTra));
         }
         
         private void btCapNhatDonHang_Click(object sender, EventArgs e)
@@ -67,12 +59,7 @@ namespace Project
                 soLuong[i] = Convert.ToInt32(dataGridViewSanPham.Rows[i].Cells["SLuong"].Value);
                 maSanPham[i] = Convert.ToString(dataGridViewSanPham.Rows[i].Cells["MaSP"].Value);
             }
-            for (int i = 0; i < dataGridViewSanPham.Rows.Count; i++)
-            {
-                string query = "UPDATE GioHang SET SoLuong = '" + soLuong[i] + "' " +
-                    "WHERE MaPhieu = '" + maPhieu + "' AND MaSanPham = N'" + maSanPham[i] + "'";
-                databaseAccess.executeNonQuery(query);
-            }
+            xuLyDonHang.CapNhat(maPhieu, soLuong, maSanPham, dataGridViewSanPham.Rows.Count);
             frmXuLyDonHang_Load(sender, e);
         }
 
@@ -90,8 +77,8 @@ namespace Project
                     MessageBox.Show("Please enter a reason for the return", "Reason return", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     return;
                 }
-                string query = "DELETE FROM GioHang " +
-                    "WHERE MaPhieu = '" + maPhieu + "' AND MaSanPham = N'" + maSanPham[e.RowIndex] + "'";
+                DatabaseAccess databaseAccess = new DatabaseAccess();
+                string query = "DELETE FROM GioHang WHERE MaPhieu = '" + maPhieu + "' AND MaSanPham = '" + maSanPham[e.RowIndex] + "'";
                 databaseAccess.executeNonQuery(query);
                 frmXuLyDonHang_Load(sender, e);
             }
@@ -101,13 +88,19 @@ namespace Project
         {
             if (MessageBox.Show("Are you sure you want to update your invoice?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int thanhToan = khachTra + Convert.ToInt32(tbThanhToan.Text);
-                if (tongGia >= thanhToan)
+                try
                 {
-                    string query = "UPDATE HoaDon SET KhachTra = " + thanhToan + " WHERE MaPhieu = '" + maPhieu + "'";
-                    databaseAccess.executeNonQuery(query);
-                    frmXuLyDonHang_Load(sender, e);
-                }                
+                    int thanhToan = khachTra + Convert.ToInt32(tbThanhToan.Text);
+                    if (tongGia >= thanhToan)
+                    {
+                        xuLyDonHang.ThanhToan(thanhToan, maPhieu);
+                        frmXuLyDonHang_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }           
             }
         }
     }

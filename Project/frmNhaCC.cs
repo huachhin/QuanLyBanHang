@@ -25,7 +25,7 @@ namespace Project
             InitializeComponent();
             nhaCungCapBLL = new NhaCungCapBLL();
         }
-        private void frmNhaCC_Load(object sender, EventArgs e)
+        public void frmNhaCC_Load(object sender, EventArgs e)
         {
             LoadForm();   
         }

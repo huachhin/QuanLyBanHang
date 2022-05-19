@@ -55,7 +55,7 @@ namespace Project
             this.lbDoanhThu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDoanhThu.Name = "lbDoanhThu";
             this.lbDoanhThu.Size = new System.Drawing.Size(418, 91);
-            this.lbDoanhThu.TabIndex = 19;
+            this.lbDoanhThu.TabIndex = 0;
             this.lbDoanhThu.Text = "Nhà Cung Cấp";
             this.lbDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -65,7 +65,7 @@ namespace Project
             this.tbTenNCC.Margin = new System.Windows.Forms.Padding(4);
             this.tbTenNCC.Name = "tbTenNCC";
             this.tbTenNCC.Size = new System.Drawing.Size(301, 22);
-            this.tbTenNCC.TabIndex = 17;
+            this.tbTenNCC.TabIndex = 8;
             // 
             // tbMaNCC
             // 
@@ -73,7 +73,7 @@ namespace Project
             this.tbMaNCC.Margin = new System.Windows.Forms.Padding(4);
             this.tbMaNCC.Name = "tbMaNCC";
             this.tbMaNCC.Size = new System.Drawing.Size(301, 22);
-            this.tbMaNCC.TabIndex = 18;
+            this.tbMaNCC.TabIndex = 7;
             // 
             // lbTongDoanhThu
             // 
@@ -84,7 +84,7 @@ namespace Project
             this.lbTongDoanhThu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTongDoanhThu.Name = "lbTongDoanhThu";
             this.lbTongDoanhThu.Size = new System.Drawing.Size(188, 59);
-            this.lbTongDoanhThu.TabIndex = 15;
+            this.lbTongDoanhThu.TabIndex = 1;
             this.lbTongDoanhThu.Text = "Mã NCC:";
             this.lbTongDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -97,7 +97,7 @@ namespace Project
             this.lbLoiNhuan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLoiNhuan.Name = "lbLoiNhuan";
             this.lbLoiNhuan.Size = new System.Drawing.Size(188, 59);
-            this.lbLoiNhuan.TabIndex = 16;
+            this.lbLoiNhuan.TabIndex = 2;
             this.lbLoiNhuan.Text = "Tên NCC:";
             this.lbLoiNhuan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -110,7 +110,7 @@ namespace Project
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 59);
-            this.label1.TabIndex = 16;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Địa Chỉ:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -123,7 +123,7 @@ namespace Project
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 59);
-            this.label2.TabIndex = 15;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Mặt Hàng:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -133,7 +133,7 @@ namespace Project
             this.tbMatHang.Margin = new System.Windows.Forms.Padding(4);
             this.tbMatHang.Name = "tbMatHang";
             this.tbMatHang.Size = new System.Drawing.Size(301, 22);
-            this.tbMatHang.TabIndex = 18;
+            this.tbMatHang.TabIndex = 9;
             // 
             // tbDiaChi
             // 
@@ -141,7 +141,7 @@ namespace Project
             this.tbDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(301, 22);
-            this.tbDiaChi.TabIndex = 17;
+            this.tbDiaChi.TabIndex = 10;
             // 
             // label3
             // 
@@ -152,7 +152,7 @@ namespace Project
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(188, 59);
-            this.label3.TabIndex = 16;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Email:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -165,7 +165,7 @@ namespace Project
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(188, 59);
-            this.label4.TabIndex = 15;
+            this.label4.TabIndex = 5;
             this.label4.Text = "SĐT:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -175,7 +175,7 @@ namespace Project
             this.tbSDT.Margin = new System.Windows.Forms.Padding(4);
             this.tbSDT.Name = "tbSDT";
             this.tbSDT.Size = new System.Drawing.Size(301, 22);
-            this.tbSDT.TabIndex = 18;
+            this.tbSDT.TabIndex = 11;
             // 
             // tbEmail
             // 
@@ -183,7 +183,7 @@ namespace Project
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(301, 22);
-            this.tbEmail.TabIndex = 17;
+            this.tbEmail.TabIndex = 12;
             // 
             // btThemNCC
             // 
@@ -194,7 +194,7 @@ namespace Project
             this.btThemNCC.Location = new System.Drawing.Point(350, 526);
             this.btThemNCC.Name = "btThemNCC";
             this.btThemNCC.Size = new System.Drawing.Size(167, 62);
-            this.btThemNCC.TabIndex = 20;
+            this.btThemNCC.TabIndex = 14;
             this.btThemNCC.Text = "Thêm NCC";
             this.btThemNCC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btThemNCC.UseVisualStyleBackColor = false;
@@ -209,7 +209,7 @@ namespace Project
             this.btCapNhat.Location = new System.Drawing.Point(118, 526);
             this.btCapNhat.Name = "btCapNhat";
             this.btCapNhat.Size = new System.Drawing.Size(167, 62);
-            this.btCapNhat.TabIndex = 21;
+            this.btCapNhat.TabIndex = 13;
             this.btCapNhat.Text = "Cập Nhật";
             this.btCapNhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btCapNhat.UseVisualStyleBackColor = false;
@@ -236,7 +236,9 @@ namespace Project
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTongDoanhThu);
             this.Controls.Add(this.lbLoiNhuan);
+            this.MaximizeBox = false;
             this.Name = "frmCapNhatNCC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCapNhatNCC";
             this.Load += new System.EventHandler(this.frmCapNhatNCC_Load);
             this.ResumeLayout(false);

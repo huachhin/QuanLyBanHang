@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DAL;
+using BLL;
 
 namespace Project
 {
     public partial class frmCapNhatNCC : Form
     {
-        private DatabaseAccess databaseAccess;
+        private CapNhatNccBLL capNhatNccBLL;
         private string maNcc;
         private string tenNcc;
         private string diaChi;
@@ -23,7 +23,7 @@ namespace Project
         public frmCapNhatNCC(string maNcc, string tenNcc, string diaChi, string email, string sdt)
         {
             InitializeComponent();
-            databaseAccess = new DatabaseAccess();
+            capNhatNccBLL = new CapNhatNccBLL();
             this.maNcc = maNcc;
             this.tenNcc = tenNcc;
             this.diaChi = diaChi;
@@ -33,19 +33,13 @@ namespace Project
 
         private void btThemNCC_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO NhaCungCap(MaNhaCungCap, TenNhaCungCap, DiaChi, Email, SDT, MatHang) " +
-                "VALUES('" + tbMaNCC.Text + "', N'" + tbTenNCC.Text + "', '" + tbDiaChi.Text + "', '" + tbEmail.Text + "','" + tbSDT.Text + "', '" + tbMatHang.Text + "')";
-            databaseAccess.executeNonQuery(query);
-            this.Close();            
+            capNhatNccBLL.ThemNCC(tbMaNCC.Text, tbTenNCC.Text, tbDiaChi.Text, tbEmail.Text, tbSDT.Text, tbMatHang.Text);
+            this.Close();
         }
 
         private void btCapNhat_Click(object sender, EventArgs e)
         {
-            string query = "UPDATE NhaCungCap SET TenNhaCungCap = '" + tbTenNCC.Text + "', " +
-                "DiaChi = '" + tbDiaChi.Text + "', Email = '" + tbEmail.Text + "', SDT = '" + tbSDT.Text + "', " +
-                "MatHang = '" + tbMatHang.Text + "' " +
-                "WHERE MaNhaCungCap = '" + tbMaNCC.Text + "'";
-            databaseAccess.executeNonQuery(query);
+            capNhatNccBLL.CapNhatNCC(tbMaNCC.Text, tbTenNCC.Text, tbDiaChi.Text, tbEmail.Text, tbSDT.Text, tbMatHang.Text);
             this.Close();
         }
 
