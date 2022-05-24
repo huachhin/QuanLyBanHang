@@ -14,12 +14,6 @@ namespace DTO
     
     public partial class NhanVien
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhanVien()
-        {
-            this.HoaDons = new HashSet<HoaDon>();
-        }
-    
         public string MaNhanVien { get; set; }
         public string TenNhanVien { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
@@ -27,8 +21,5 @@ namespace DTO
         public string SDT { get; set; }
         public string GioiTinh { get; set; }
         public string Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

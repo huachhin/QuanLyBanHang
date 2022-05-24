@@ -18,7 +18,7 @@ namespace DAL
         public DatabaseAccess()
         {
             sqlDataAdapter = new SqlDataAdapter();
-            sqlConnection = new SqlConnection(@"Data Source=NGOCHAI\SQLEXPRESS;Initial Catalog=QuanLyBanDienThoai;Integrated Security=True");
+            sqlConnection = new SqlConnection(@"Data Source=DESKTOP-04OROKV\MSSQLSERVER02;Initial Catalog=QLBH;Integrated Security=True");
         }
         public SqlConnection openConnection()
         {

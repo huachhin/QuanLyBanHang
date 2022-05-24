@@ -103,6 +103,18 @@
     <Compile Include="frmChiaCoTuc.Designer.cs">
       <DependentUpon>frmChiaCoTuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChiTietDienThoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietDienThoai.designer.cs">
+      <DependentUpon>frmChiTietDienThoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChitietLaptop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChitietLaptop.designer.cs">
+      <DependentUpon>frmChitietLaptop.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +136,7 @@
     <Compile Include="frmGiaoDien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGiaoDien.Designer.cs">
+    <Compile Include="frmGiaoDien.designer.cs">
       <DependentUpon>frmGiaoDien.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHoaDon.cs">
@@ -175,11 +187,29 @@
     <Compile Include="frmTaiChinh.designer.cs">
       <DependentUpon>frmTaiChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThanhToan.designer.cs">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemDienThoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemDienThoai.designer.cs">
+      <DependentUpon>frmThemDienThoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmThemHoaDon.Designer.cs">
       <DependentUpon>frmThemHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemLaptop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemLaptop.designer.cs">
+      <DependentUpon>frmThemLaptop.cs</DependentUpon>
     </Compile>
     <Compile Include="frmXuLyDonHang.cs">
       <SubType>Form</SubType>
@@ -189,6 +219,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLBHDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UCThuChi.cs">
       <SubType>UserControl</SubType>
@@ -207,6 +242,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChiaCoTuc.resx">
       <DependentUpon>frmChiaCoTuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietDienThoai.resx">
+      <DependentUpon>frmChiTietDienThoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChitietLaptop.resx">
+      <DependentUpon>frmChitietLaptop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuaHang.resx">
       <DependentUpon>frmCuaHang.cs</DependentUpon>
@@ -244,8 +285,17 @@
     <EmbeddedResource Include="frmTaiChinh.resx">
       <DependentUpon>frmTaiChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThanhToan.resx">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemDienThoai.resx">
+      <DependentUpon>frmThemDienThoai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemHoaDon.resx">
       <DependentUpon>frmThemHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemLaptop.resx">
+      <DependentUpon>frmThemLaptop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXuLyDonHang.resx">
       <DependentUpon>frmXuLyDonHang.cs</DependentUpon>
@@ -293,6 +343,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLBHDataSet.xsc">
+      <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBHDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBHDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBHDataSet.xss">
+      <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\nv.png" />
   </ItemGroup>
   <ItemGroup>
@@ -451,6 +512,21 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\icons-remove.png" />
+    <None Include="Resources\icons8-laptop-64.png" />
+    <Content Include="Resources\icons_back.png" />
+    <None Include="Resources\icons_back1.png" />
+    <Content Include="Resources\icons_cancel.gif" />
+    <Content Include="Resources\icons_cancel.png" />
+    <Content Include="Resources\icons_iphone.png" />
+    <Content Include="Resources\icons_refresh.png" />
+    <None Include="Resources\icons_refresh1.png" />
+    <Content Include="Resources\icon_addDienthoai.png" />
+    <None Include="Resources\icon_addDienthoai1.png" />
+    <Content Include="Resources\icon_addToCart.png" />
+    <None Include="Resources\icon_addToCart1.png" />
+    <Content Include="Resources\icon_upload.png" />
+    <None Include="Resources\icon_upload1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

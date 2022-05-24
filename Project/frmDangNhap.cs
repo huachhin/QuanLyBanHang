@@ -48,7 +48,7 @@ namespace Project
                     giaoDien.Show();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Sai thông tin đăng nhập", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

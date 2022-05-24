@@ -17,7 +17,6 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CuaHang()
         {
-            this.HoaDons = new HashSet<HoaDon>();
             this.Khoes = new HashSet<Kho>();
         }
     
@@ -26,8 +25,6 @@ namespace DTO
         public Nullable<int> GiaBan { get; set; }
         public Nullable<int> SoLuong { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kho> Khoes { get; set; }
     }

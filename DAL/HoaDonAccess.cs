@@ -38,14 +38,14 @@ namespace DAL
             using (var db = new QuanLyBanDienThoaiEntities())
             {
                 var tim = db.HoaDons.SingleOrDefault(t => t.MaPhieu == mp);
-                var tim1 = db.CuaHangs.SingleOrDefault(t => t.MaMatHang == tim.MaMatHang);
+                var tim1 = db.CuaHangs.SingleOrDefault(t => t.MaMatHang == "");
                 if (tim != null)
                 {
                     tim.KhachTra = von;
-                    if(tim.SoLuong * tim1.GiaBan == tim.KhachTra)
+                    /*if (tim.so * tim1.GiaBan == tim.KhachTra)
                     {
                         tim.No = "Không";
-                    }
+                    }*/
                 }
                 db.SaveChanges();
             }

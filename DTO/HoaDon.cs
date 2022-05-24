@@ -15,18 +15,12 @@ namespace DTO
     public partial class HoaDon
     {
         public string MaPhieu { get; set; }
-        public string MaMatHang { get; set; }
         public string MaKhachHang { get; set; }
         public string MaNguoiTao { get; set; }
         public Nullable<System.DateTime> NgayGiaoDich { get; set; }
-        public Nullable<int> SoLuong { get; set; }
         public Nullable<int> KhachTra { get; set; }
         public string PhuongThuc { get; set; }
         public string TrangThai { get; set; }
         public string No { get; set; }
-    
-        public virtual CuaHang CuaHang { get; set; }
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
     }
 }

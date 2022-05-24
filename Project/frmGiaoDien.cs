@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,12 @@ namespace Project
 {
     public partial class frmGiaoDien : Form
     {
+        private frmMatHang frmMatHang = new frmMatHang();
+
         public frmGiaoDien()
         {
             InitializeComponent();
+            frmMatHang.Refresh_Cart();
         }
 
         private Form CurrentChildForm;
@@ -82,5 +86,7 @@ namespace Project
         {
             OpenChildForm(new frmMatHang());
         }
+
+     
     }
 }

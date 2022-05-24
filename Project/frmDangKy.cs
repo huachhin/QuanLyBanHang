@@ -30,7 +30,7 @@ namespace Project
                     databaseAccess.executeNonQuery(query);
                 }                    
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Đăng ký thất bại");
             }
