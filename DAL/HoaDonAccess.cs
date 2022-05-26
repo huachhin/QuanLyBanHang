@@ -14,10 +14,12 @@ namespace DAL
     public class HoaDonAccess
     {
         private DatabaseAccess databaseAccess;
+
         public HoaDonAccess()
         {
             databaseAccess = new DatabaseAccess();
         }
+
         public DataSet LoadHoaDon()
         {
             string query = "SELECT MaPhieu, NgayGiaoDich, KhachHang.MaKhachHang, TenKhachHang, KhachTra, No " +
@@ -25,6 +27,7 @@ namespace DAL
                 "ON HoaDon.MaKhachHang = KhachHang.MaKhachHang";
             return databaseAccess.executeQuery(query);
         }
+
         public DataSet Search(string valueSearch)
         {
             string query = "SELECT MaPhieu, NgayGiaoDich, KhachHang.MaKhachHang, TenKhachHang, KhachTra, No " +
@@ -33,6 +36,7 @@ namespace DAL
                 "WHERE MaPhieu LIKE N'%" + valueSearch + "%' OR TenKhachHang LIKE N'%" + valueSearch + "%'";
             return databaseAccess.executeQuery(query);
         }
+
         public void UpdateVon(string mp, int von)
         {
             using (var db = new QuanLyBanDienThoaiEntities())

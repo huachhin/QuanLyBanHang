@@ -20,19 +20,23 @@ namespace Project
         private string diaChi;
         private string email;
         private string sdt;
+
         public frmNhaCC()
         {
             InitializeComponent();
             nhaCungCapBLL = new NhaCungCapBLL();
         }
+
         public void frmNhaCC_Load(object sender, EventArgs e)
         {
             LoadForm();   
         }
+
         public void LoadForm()
         {
             dtGridViewNCC.DataSource = nhaCungCapBLL.LamMoiForm().Tables[0];
         }
+
         private void btThemNCC_Click(object sender, EventArgs e)
         {
             frmCapNhatNCC frmCapNhat = new frmCapNhatNCC(maNcc, tenNcc, diaChi, email, sdt);

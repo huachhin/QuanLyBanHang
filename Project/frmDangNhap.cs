@@ -16,6 +16,7 @@ namespace Project
         private DatabaseAccess databaseAccess;
         private int frm = 0; // 0 GiaoDien     1 TaiChinh
         private long doanhThu = 0;
+
         public frmDangNhap(int frm, long doanhThu)
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace Project
             this.frm = frm;
             this.doanhThu = doanhThu;
         }
+
         private void btDangNhap_Click(object sender, EventArgs e)
         {
             try
@@ -59,6 +61,7 @@ namespace Project
             frmDangKy dangKy = new frmDangKy();
             dangKy.Show();
         }
+
         private void pbExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

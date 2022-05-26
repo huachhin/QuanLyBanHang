@@ -10,10 +10,12 @@ namespace DAL
     public class XuLyDonHangDAL
     {
         private DatabaseAccess databaseAccess;
+
         public XuLyDonHangDAL()
         {
             databaseAccess = new DatabaseAccess();
         }
+
         public DataSet LoadForm(string maPhieu)
         {
             string query = "WITH TMP AS( " +
@@ -26,6 +28,7 @@ namespace DAL
                 "WHERE HoaDon.MaPhieu = N'" + maPhieu + "'";
             return databaseAccess.executeQuery(query);
         }
+
         public void Update(string maPhieu, int[] soLuong, string[] maSanPham, int count)
         {
             for (int i = 0; i < count; i++)
@@ -35,11 +38,13 @@ namespace DAL
                 databaseAccess.executeNonQuery(query);
             }
         }
+
         public void Delete(string maPhieu, string maSanPham)
         {
             string query = "DELETE FROM GioHang WHERE MaPhieu = '" + maPhieu + "' AND MaSanPham = '" + maSanPham + "'";
             databaseAccess.executeNonQuery(query);
         }
+
         public void ThanhToan(int thanhToan, string maPhieu)
         {
             string query = "UPDATE HoaDon SET KhachTra = " + thanhToan + " WHERE MaPhieu = '" + maPhieu + "'";

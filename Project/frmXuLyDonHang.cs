@@ -21,6 +21,7 @@ namespace Project
         string[] maSanPham = new string[100];
         int tongGia;
         int khachTra;
+
         public frmXuLyDonHang(string maPhieu, string tenKhachHang)
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Project
             this.tenKhachHang = tenKhachHang;
             xuLyDonHang = new XuLyDonHangBLL();
         }
+
         private void frmXuLyDonHang_Load(object sender, EventArgs e)
         {           
             lbMaPhieu.Text = maPhieu;

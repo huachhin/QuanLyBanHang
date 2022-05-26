@@ -15,9 +15,13 @@ namespace Project
     public partial class frmInHoaDon : Form
     {
         private DatabaseAccess databaseAccess;
+
         private string maPhieu;
+
         private string tenKhachHang;
+
         private int tongGia;
+
         public frmInHoaDon(string maPhieu, string tenKhachHang)
         {
             InitializeComponent();
@@ -25,6 +29,7 @@ namespace Project
             this.maPhieu = maPhieu;
             this.tenKhachHang = tenKhachHang;
         }
+
         private void frmInHoaDon_Load(object sender, EventArgs e)
         {
             

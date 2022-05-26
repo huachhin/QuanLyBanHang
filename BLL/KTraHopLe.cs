@@ -16,6 +16,7 @@ namespace BLL
             string sMailPattern = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
             return Regex.IsMatch(email.Trim(), sMailPattern);
         }
+
         public bool IsValidVietNamPhoneNumber(string phoneNum)
         {
             if (string.IsNullOrEmpty(phoneNum))

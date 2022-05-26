@@ -19,7 +19,6 @@ namespace Project
         {
             InitializeComponent();
             LoadDataKhachHang();
-            
         }
 
         // Load data from Database to datagridview
@@ -224,7 +223,6 @@ namespace Project
                 MessageBox.Show(loi.Message);
             }
         }
-
 
         // Change hightligh for textSearcH
         private void txtSearch_khachHang_Enter_1(object sender, EventArgs e)

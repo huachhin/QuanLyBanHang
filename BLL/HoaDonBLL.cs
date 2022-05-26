@@ -12,18 +12,22 @@ namespace BLL
     public class HoaDonBLL
     {
         private HoaDonAccess hoaDonAccess;
+
         public HoaDonBLL()
         {
             hoaDonAccess = new HoaDonAccess();
         }
+
         public DataSet LamMoiHoaDon()
         {
             return hoaDonAccess.LoadHoaDon();
         }
+
         public DataSet TimKiem(string valueSearch)
         {
             return hoaDonAccess.Search(valueSearch);
         }
+
         public void CapNhatVon(string mng, int von, string soVonRut)
         {
             if (soVonRut == "")

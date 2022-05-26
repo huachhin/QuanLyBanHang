@@ -26,6 +26,7 @@ namespace Project
             string a = File.ReadAllText("MaSp.txt");
             return a;
         }
+
         private void LoadData()
         {
             string maSp = ReadFile_MaSp();

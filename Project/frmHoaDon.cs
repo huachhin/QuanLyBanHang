@@ -16,15 +16,18 @@ namespace Project
     public partial class frmHoaDon : Form
     {
         private HoaDonBLL hoaDonBLL;
+
         public frmHoaDon()
         {
             InitializeComponent();
             hoaDonBLL = new HoaDonBLL();
         }
+
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
             LoadForm();
         }
+
         private void LoadForm()
         {
             dtGridViewHoaDon.DataSource = hoaDonBLL.LamMoiHoaDon().Tables[0];
@@ -32,17 +35,15 @@ namespace Project
 
         private string maPhieu;
         private string tenKhachHang;
+
         private void btXuLy_Click(object sender, EventArgs e)
         {
             frmXuLyDonHang frmXuLyDonHang = new frmXuLyDonHang(maPhieu, tenKhachHang);
             frmXuLyDonHang.Show();
         }
+
         private void dtGridViewHoaDon_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == -1 || e.RowIndex == (dtGridViewHoaDon.RowCount - 1)) return;
-            maPhieu = dtGridViewHoaDon.Rows[e.RowIndex].Cells["MP"].Value.ToString();
-            tenKhachHang = dtGridViewHoaDon.Rows[e.RowIndex].Cells["KhachHang"].Value.ToString();
-        }
+
         private void txtSearchHoaDon_Leave(object sender, EventArgs e)
         {
             if (txtSearchHoaDon.Text == "")

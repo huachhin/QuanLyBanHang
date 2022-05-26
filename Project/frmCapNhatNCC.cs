@@ -20,6 +20,7 @@ namespace Project
         private string email;
         private string sdt;
         private string matHang;
+
         public frmCapNhatNCC(string maNcc, string tenNcc, string diaChi, string email, string sdt)
         {
             InitializeComponent();

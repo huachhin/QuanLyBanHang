@@ -17,6 +17,7 @@ namespace Project
     {
         private string maSP = null;
         private string loaiSp = null;
+        private string tensp = null;
 
         public frmMatHang()
         {
@@ -24,7 +25,6 @@ namespace Project
             LoadDataMatHang();
             LoadDataGioHang();
         }
-
 
         private void LoadDataMatHang()
         {
@@ -158,7 +158,6 @@ namespace Project
             }
         }
 
-        string tensp;
         private void dtGridView_MatHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -959,7 +958,6 @@ namespace Project
             }
         }
 
-        // Tính năng chưa hoàn thành
         private void button_themGiohang_Click(object sender, EventArgs e)
         {
             try
@@ -973,7 +971,6 @@ namespace Project
             LoadDataGioHang();
 
         }
-
 
         private void btn_thanhToan_Click(object sender, EventArgs e)
         {

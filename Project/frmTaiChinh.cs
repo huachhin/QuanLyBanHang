@@ -22,11 +22,13 @@ namespace Project
         private string email = "";
         private DateTime thoiGian = DateTime.Now;
         private string nguon = "";
+
         public frmTaiChinh()
         {
             InitializeComponent();
             taiChinhBLL = new TaiChinhBLL();
         }
+
         private void frmTaiChinh_Load(object sender, EventArgs e)
         {
             doanhThu = 0;
@@ -39,6 +41,7 @@ namespace Project
             }
             LoadBieuDoTong(DateTime.Now.Year);
         }
+
         private void LoadBieuDoTong(int value)
         {
             lbThongKe.Text = "Doanh Thu Tổng Theo Năm";
@@ -62,6 +65,7 @@ namespace Project
                 j += 1;
             }
         }
+
         private void LoadBieuDoMonth(int value)
         {
             try
@@ -79,6 +83,7 @@ namespace Project
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void LoadBieuDoYear(int value)
         {
             try
@@ -97,7 +102,6 @@ namespace Project
             }
         }
         
-
         private void btThemVon_Click(object sender, EventArgs e)
         {
             taiChinhBLL.ThemVon(maNguoiGop, tenNguoiGop, von, thoiGian, email, nguon, tbSoVonRut.Text);

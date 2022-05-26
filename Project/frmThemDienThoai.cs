@@ -32,7 +32,7 @@ namespace Project
         }
 
         // Convert image to byte
-        private byte[] ImageToByteArray(PictureBox pictureBox)
+        public byte[] ImageToByteArray(PictureBox pictureBox)
         {
             MemoryStream memoryStream = new MemoryStream();
             pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
@@ -105,8 +105,6 @@ namespace Project
                     MessageBox.Show("Mã sản phẩm đã tồn tại. Vui lòng nhập mã khác!");
                 }
             }
-
-
         }
 
         // Event click

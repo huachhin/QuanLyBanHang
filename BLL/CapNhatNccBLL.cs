@@ -11,12 +11,15 @@ namespace BLL
     public class CapNhatNccBLL
     {
         private CapNhatNccDAL CapNhatNcc;
+
         private KTraHopLe hopLe;
+
         public CapNhatNccBLL()
         {
             CapNhatNcc = new CapNhatNccDAL();
             hopLe = new KTraHopLe();
         }
+
         public void ThemNCC(string maNcc, string tenNcc, string diaChi, string email, string sdt, string tenMathang)
         {
             if (!hopLe.IsValidMail(email) || !hopLe.IsValidVietNamPhoneNumber(sdt))
@@ -26,6 +29,7 @@ namespace BLL
             }
             CapNhatNcc.InsertNCC(maNcc, tenNcc, diaChi, email, sdt, tenMathang);
         }
+
         public void CapNhatNCC(string maNcc, string tenNcc, string diaChi, string email, string sdt, string tenMathang)
         {
             if (!hopLe.IsValidMail(email) || !hopLe.IsValidVietNamPhoneNumber(sdt))

@@ -10,10 +10,12 @@ namespace DAL
     public class ChiaCoTucDAL
     {
         private DatabaseAccess databaseAccess;
+
         public ChiaCoTucDAL()
         {
             databaseAccess = new DatabaseAccess();
         }
+
         public DataSet LoadCoDong()
         {
             DataRow dr = databaseAccess.executeQuery("SELECT SUM(Von) AS TongVon FROM TaiChinh").Tables[0].Rows[0];
@@ -21,6 +23,7 @@ namespace DAL
             string query = "SELECT MaNguoiGop, TenNguoiGop, Von FROM TaiChinh WHERE Von >= " + tongVon * 0.05 + " AND MaNguoiGop != 'DN'";
             return databaseAccess.executeQuery(query);
         }        
+
         public void CapNhat(long von, string[] maNG, long doanhThu)
         {
             for (int i = 0; i < maNG.Length; i++)

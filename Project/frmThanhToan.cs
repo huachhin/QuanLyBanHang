@@ -19,11 +19,7 @@ namespace Project
             InitializeComponent();
         }
 
-        private void groupBox_thtinKhachhang_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        // Event
         private void btn_huyBo_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -53,6 +49,7 @@ namespace Project
 
         }
 
+        // Get id from combobox name
         private string GetId_NhanVien(string name)
         {
             using(QLBHEntities db = new QLBHEntities())
@@ -65,6 +62,7 @@ namespace Project
             }
             
         }
+
         private string GetId_KhachHang(string name)
         {
             using (QLBHEntities db = new QLBHEntities())
@@ -72,11 +70,12 @@ namespace Project
                 KhachHang khachHang = db.KhachHangs.Where(p => p.TenKhachHang.Contains(name)).SingleOrDefault();
                 if (khachHang != null)
                     return khachHang.MaKhachHang;
-                return "";
+                return "KH" + name[0];
             }
 
         }
 
+        // Feature
         public void ThanhToan()
         {
             using (QLBHEntities db = new QLBHEntities())

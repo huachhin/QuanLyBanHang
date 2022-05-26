@@ -15,6 +15,7 @@ namespace Project
         private ChiaCoTucBLL chiaCoTucBLL;
         private long doanhThu;
         private long PE;
+
         public frmChiaCoTuc(long doanhThu)
         {
             InitializeComponent();

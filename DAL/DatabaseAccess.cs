@@ -12,14 +12,15 @@ namespace DAL
     public class DatabaseAccess
     {
         private SqlDataAdapter sqlDataAdapter;
+
         private SqlConnection sqlConnection;
-        
 
         public DatabaseAccess()
         {
             sqlDataAdapter = new SqlDataAdapter();
             sqlConnection = new SqlConnection(@"Data Source=DESKTOP-04OROKV\MSSQLSERVER02;Initial Catalog=QLBH;Integrated Security=True");
         }
+
         public SqlConnection openConnection()
         {
             if (sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -28,6 +29,7 @@ namespace DAL
             }
             return sqlConnection;
         }
+
         public DataSet executeQuery(String query)
         {
             using (sqlDataAdapter = new SqlDataAdapter(query, openConnection()))
@@ -49,6 +51,7 @@ namespace DAL
             }
             return null;
         }
+
         public int executeNonQuery(String query)
         {
             using (SqlCommand cmd = new SqlCommand(query, openConnection()))

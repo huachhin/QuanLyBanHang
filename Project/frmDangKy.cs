@@ -14,11 +14,13 @@ namespace Project
     public partial class frmDangKy : Form
     {
         private DatabaseAccess databaseAccess;
+
         public frmDangKy()
         {
             InitializeComponent();
             databaseAccess = new DatabaseAccess();
         }
+
         private void btDangKy_Click(object sender, EventArgs e)
         {
             try
@@ -39,6 +41,7 @@ namespace Project
                 this.Close();
             }
         }
+
         private void pbExit_Click(object sender, EventArgs e)
         {
             this.Close();

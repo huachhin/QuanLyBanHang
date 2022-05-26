@@ -14,6 +14,7 @@ namespace Project
 {
     public partial class frmThemLaptop : Form
     {
+        private frmThemDienThoai frmThemDienThoai = new frmThemDienThoai();
         public frmThemLaptop()
         {
             InitializeComponent();
@@ -31,13 +32,6 @@ namespace Project
             }
         }
 
-        // Convert image to byte
-        private byte[] ImageToByteArray(PictureBox pictureBox)
-        {
-            MemoryStream memoryStream = new MemoryStream();
-            pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
-            return memoryStream.ToArray();
-        }
 
         // Feature ---------------------
         public void AddMatHangLapTop()
@@ -65,7 +59,7 @@ namespace Project
                             IdMatHang = textBox_id.Text,
                             TenSanPham = textBox_tenSp.Text,
                             Gia = Convert.ToInt32(textBox_gia.Text),
-                            Anh = ImageToByteArray(pictureBox_anhLaptop),
+                            Anh = frmThemDienThoai.ImageToByteArray(pictureBox_anhLaptop),
                             Manhinh = textBox_manHinh.Text,
                             CPU = textBox_CPU.Text,
                             RAM = textBox_Ram.Text,
@@ -92,8 +86,6 @@ namespace Project
                     MessageBox.Show("Mã sản phẩm đã tồn tại. Vui lòng nhập mã khác!");
                 }
             }
-
-            
         }
 
         // Envent click ---------------------

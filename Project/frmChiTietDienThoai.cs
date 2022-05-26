@@ -15,6 +15,7 @@ namespace Project
     public partial class frmChiTietDienThoai : Form
     {
         private frmMatHang frmMatHang = new frmMatHang();
+
         public frmChiTietDienThoai()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Project
             string a = File.ReadAllText("MaSp.txt");
             return a;
         }
+
         private void LoadData()
         {
             string maSp = ReadFile_MaSp();
@@ -58,7 +60,6 @@ namespace Project
                         MemoryStream memory = new MemoryStream(ctdt.Anh);
                         pictureBox_anh.Image = Image.FromStream(memory);
                     }
-                    
                 }
             }       
         }

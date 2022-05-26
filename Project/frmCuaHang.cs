@@ -25,6 +25,7 @@ namespace Project
         {
             LoadForm();
         }
+
         private void LoadForm()
         {
 
